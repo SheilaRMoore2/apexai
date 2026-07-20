@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Apex AI Media</title>
+</head>
+<body class="bg-blue-950 text-white font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-blue-950/90 backdrop-blur border-b border-blue-800 p-6 flex justify-between items-center">
+        <a href="#home" class="text-2xl font-black italic text-white">APEX<span class="text-blue-400">AI</span></a>
+        <div class="space-x-8 text-sm font-medium">
+            <a href="#home" class="hover:text-blue-400">Home</a>
+            <a href="#services" class="hover:text-blue-400">Services</a>
+            <a href="#about" class="hover:text-blue-400">About</a>
+            <a href="#contact" class="hover:text-blue-400">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="py-32 px-6 text-center">
+        <h1 class="text-7xl md:text-9xl font-extrabold mb-8 leading-tight">Scale Smarter with <span class="text-blue-400">AI</span>.</h1>
+        <p class="text-2xl text-blue-200 max-w-3xl mx-auto mb-12">We build the technical foundations—from custom web development to AI-driven automation—that help your business succeed.</p>
+        <a href="#contact" class="bg-blue-600 px-12 py-5 rounded-full text-lg font-bold hover:bg-blue-500 transition">Book a Consultation</a>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="max-w-7xl mx-auto py-24 px-6">
+        <h3 class="text-5xl font-bold text-center mb-16">Our Services</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+            <a href="chatbot-dev.html" class="block bg-blue-900/50 p-10 rounded-3xl border border-blue-800 hover:border-blue-400 transition group">
+                <h4 class="text-2xl font-bold mb-4 group-hover:text-blue-400 transition">AI Chatbot Development</h4>
+                <p class="text-blue-200">Custom-trained AI agents that qualify leads 24/7, built to integrate seamlessly into your business.</p>
+            </a>
+            <a href="automation.html" class="block bg-blue-900/50 p-10 rounded-3xl border border-blue-800 hover:border-blue-400 transition group">
+                <h4 class="text-2xl font-bold mb-4 group-hover:text-blue-400 transition">Workflow Automation</h4>
+                <p class="text-blue-200">Replace manual, repetitive tasks with intelligent systems, leveraging Python-based automation to save time.</p>
+            </a>
+            <a href="website-dev.html" class="block bg-blue-900/50 p-10 rounded-3xl border border-blue-800 hover:border-blue-400 transition group">
+                <h4 class="text-2xl font-bold mb-4 group-hover:text-blue-400 transition">Website Development</h4>
+                <p class="text-blue-200">High-performance, modern web development built using React, JavaScript, and Tailwind CSS.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-blue-900/20 py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-5xl font-bold mb-8">The Apex Mission</h3>
+            <p class="text-xl text-blue-200 leading-relaxed mb-6">Apex AI Media was founded to bridge the gap between complex AI technology and real-world growth. With a deep background in computer science, Python, and React, I started this agency to empower businesses to stay ahead of the curve.</p>
+            <p class="text-xl text-blue-200 leading-relaxed">We don't just sell software; we engineer the systems that allow your brand to innovate and thrive.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-2xl mx-auto py-24 px-6">
+        <h3 class="text-5xl font-bold mb-12 text-center">Let's Connect</h3>
+        <form action="https://formspree.io/f/mzdngdog" method="POST" class="space-y-6">
+            <input type="text" name="name" placeholder="Name" required class="w-full p-4 bg-blue-950 border border-blue-800 rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+            <input type="email" name="email" placeholder="Email" required class="w-full p-4 bg-blue-950 border border-blue-800 rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+            <textarea name="message" placeholder="How can we help you succeed?" required class="w-full p-4 bg-blue-950 border border-blue-800 rounded-xl h-32 outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+            <button type="submit" class="w-full bg-blue-600 p-4 rounded-xl font-bold hover:bg-blue-500 transition">Send Inquiry</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center text-blue-400 text-sm border-t border-blue-900">
+        &copy; 2026 Apex AI Media.
+    </footer>
+
+    <!-- ArtiBot Chatbot Script -->
+    <script type="text/javascript">!function(t,e){t.artibotApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};var a=!1,i=e.createElement("script");i.async=!0,i.type="text/javascript",i.src="https://app.artibot.ai/loader.js",e.getElementsByTagName("head").item(0).appendChild(i),i.onreadystatechange=i.onload=function(){if(!(a||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState)){new window.ArtiBot({i:"8a5520a1-6fe5-4428-80b9-3e6fad1a784b"});a=!0}}}(window,document);</script>
+</body>
+</html>
