@@ -73,7 +73,7 @@
     // ------- Question flow definition -------
     var stepIndex = 0;
     var steps = [
-{
+        {
             question: 'What service sparked your interest?',
             options: ['Chatbot', 'Automation', 'I need a website', 'Custom Web App', 'Advanced AI Agent', 'Full Business Automation'],
             key: 'service',
@@ -85,6 +85,8 @@
         { question: 'What is the best way to reach you? (Text, Email, or Phone)', key: 'reach', freeText: true },
         { question: 'What is the best time to reach you?', key: 'time', freeText: true }
     ];
+
+    var CALENDLY_URL = 'https://calendly.com/your-link';
 
     // ------- Chat helpers -------
     function addBotMsg(text) {
@@ -160,6 +162,15 @@
             '• Preferred contact: ' + (lead.reach || '-') + '\n' +
             '• Best time: ' + (lead.time || '-'));
         addBotMsg('A member of the Apex team will reach out shortly. Thanks!');
+        addBotMsg('Or, if you prefer, you can book a call directly:');
+        var calBtn = document.createElement('button');
+        calBtn.textContent = '📅 Book a Call';
+        calBtn.style.cssText = 'align-self:flex-start;background:#2563eb;color:#fff;border:none;border-radius:9999px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;margin-top:4px';
+        calBtn.addEventListener('click', function () {
+            window.open(CALENDLY_URL, '_blank');
+        });
+        body.appendChild(calBtn);
+        body.scrollTop = body.scrollHeight;
 
         // Send to Formspree
         var payload = {
