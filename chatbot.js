@@ -83,7 +83,13 @@
         { question: 'What is your phone number?', key: 'phone', freeText: true },
         { question: 'What is your email address?', key: 'email', freeText: true, type: 'email' },
         { question: 'What is the best way to reach you? (Text, Email, or Phone)', key: 'reach', freeText: true },
-        { question: 'What is the best time to reach you?', key: 'time', freeText: true }
+        { question: 'What is the best time to reach you?', key: 'time', freeText: true },
+        {
+            question: 'Before we wrap up, would you like to book a quick call now?',
+            options: ['Yes', 'No'],
+            key: 'book_call',
+            freeText: false
+        }
     ];
 
     var CALENDLY_URL = 'https://calendly.com/your-link';
@@ -136,6 +142,20 @@
         if (stepIndex < steps.length) {
             askStep(stepIndex);
         } else {
+            finishChat();
+        }
+    }
+
+    function finishChat() {
+        showInput(false);
+        var bookCall = lead.book_call === 'Yes';
+        if (bookCall) {
+            addBotMsg('Awesome! Opening the calendar for you now...');
+            setTimeout(function () {
+                window.open(CALENDLY_URL, '_blank');
+                submitLead();
+            }, 800);
+        } else {
             submitLead();
         }
     }
@@ -162,17 +182,7 @@
             '• Preferred contact: ' + (lead.reach || '-') + '\n' +
             '• Best time: ' + (lead.time || '-'));
         addBotMsg('A member of the Apex team will reach out shortly. Thanks!');
-        addBotMsg('Or, if you prefer, you can book a call directly:');
-        var calBtn = document.createElement('button');
-        calBtn.textContent = '📅 Book a Call';
-        calBtn.style.cssText = 'align-self:flex-start;background:#2563eb;color:#fff;border:none;border-radius:9999px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;margin-top:4px';
-        calBtn.addEventListener('click', function () {
-            window.open(CALENDLY_URL, '_blank');
-        });
-        body.appendChild(calBtn);
-        body.scrollTop = body.scrollHeight;
 
-        // Send to Formspree
         var payload = {
             subject: 'New Chatbot Lead',
             _subject: 'New Chatbot Lead',
@@ -182,6 +192,7 @@
             email: lead.email || '',
             preferred_contact: lead.reach || '',
             best_time: lead.time || '',
+            book_call: lead.book_call || '',
             message: 'New lead captured from the website chat widget.'
         };
         var form = document.createElement('form');
