@@ -92,7 +92,7 @@
         }
     ];
 
-    var CALENDLY_URL = 'https://calendly.com/your-link';
+    var CALENDLY_URL = 'https://calendly.com/sherexmykes/new-meeting';
 
     // ------- Chat helpers -------
     function addBotMsg(text) {
@@ -150,7 +150,7 @@
         showInput(false);
         var bookCall = lead.book_call === 'Yes';
         if (bookCall) {
-            addBotMsg('Awesome! Opening the calendar for you now...');
+            addBotMsg('Awesome! Opening the calendar for your free audit call now...');
             setTimeout(function () {
                 window.open(CALENDLY_URL, '_blank');
                 submitLead();
