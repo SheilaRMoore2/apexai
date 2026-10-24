@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Jess Flame — Concept Demo by Apex AI</title>
+<meta name="description" content="Concept demo of Jess Flame — hand-poured candles in batches of forty or fewer, coconut-soy wax, eight scents, plus a travel tin, room mist, and melt sampler. With an Apex AI assistant baked in." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FDF9F2; --bg-2:#F7EDDD; --surface:#FFFFFF; --surface-2:#FFFBF4;
+    --ink:#2B1D12; --ink-2:#5C4636; --muted:#8A7360; --line:#EBDDC9; --line-strong:#D8BE96;
+    --clay:#A85B2A; --clay-bright:#C07A3E; --clay-soft:#F6E3CE;
+    --sage:#4A5A44; --sage-soft:#E7EBE0;
+    --banner-bg:#221509; --banner-ink:#FBEED3; --chat-bg:#FFFFFF;
+    --shadow:0 18px 44px rgba(58,32,8,.14); --shadow-sm:0 6px 20px rgba(58,32,8,.10);
+    --radius:18px; --radius-lg:26px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#17100A; --bg-2:#1F150D; --surface:#241810; --surface-2:#2A1D12;
+      --ink:#F8EBD3; --ink-2:#D8C3A6; --muted:#B99F82; --line:#3A291A; --line-strong:#54402A;
+      --clay:#E2A24A; --clay-bright:#EFB45E; --clay-soft:#342211;
+      --sage:#A8BE9F; --sage-soft:#243020;
+      --banner-bg:#0D0804; --banner-ink:#FBEED3; --chat-bg:#241810;
+      --shadow:0 18px 44px rgba(0,0,0,.45); --shadow-sm:0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  .serif{font-family:"Cormorant Garamond",Georgia,serif}
+  .demo-banner{background:var(--banner-bg);color:var(--banner-ink);font-size:.82rem;padding:.6rem 1rem;text-align:center;line-height:1.45}
+  .demo-banner strong{letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;background:#C07A3E;color:#fff;padding:.18rem .5rem;border-radius:999px;margin-right:.5rem;vertical-align:1px;white-space:nowrap}
+  .demo-banner a{color:#FFD88A;text-decoration:underline;text-underline-offset:2px}
+  .site-header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .header-inner{max-width:1180px;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+  .mark{width:38px;height:38px;border-radius:10px;background:var(--clay);display:grid;place-items:center;flex:none;font-size:1.2rem}
+  .brand-name{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.45rem;line-height:1}
+  .brand-sub{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:.15rem;display:block}
+  nav.main-nav{display:flex;gap:1.35rem;align-items:center;font-size:.92rem;font-weight:600}
+  nav.main-nav a{text-decoration:none;color:var(--ink-2)}
+  nav.main-nav a:hover{color:var(--clay)}
+  @media(max-width:720px){ nav.main-nav{display:none} }
+  .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.68rem 1.15rem;font-weight:700;font-size:.92rem;text-decoration:none;border:1px solid transparent;transition:transform .15s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--ink);color:var(--bg)}
+  .btn-primary:hover{background:var(--clay)}
+  .btn-clay{background:var(--clay);color:#fff}
+  .btn-clay:hover{background:var(--clay-bright)}
+  .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--clay);color:var(--clay)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+  .hero{padding:3.2rem 0 2.6rem}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:2.5rem;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--clay);background:var(--clay-soft);padding:.42rem .75rem;border-radius:999px}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(2.9rem,6vw,4.6rem);line-height:.98;font-weight:600;margin:1rem 0 .9rem;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--clay)}
+  .hero p.lede{font-size:1.13rem;color:var(--ink-2);max-width:34rem;margin:0 0 1.5rem}
+  .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.7rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+  .hero-meta div strong{display:block;font-family:"Cormorant Garamond",serif;font-size:1.35rem;line-height:1}
+  .hero-meta div span{font-size:.8rem;color:var(--muted);font-weight:600}
+  .hero-panel{position:relative;border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;background:linear-gradient(140deg,#3A2310,#A85B2A 55%,#D89A5B);min-height:440px;display:grid;place-items:center;text-align:center;padding:2rem;color:#FFF4E2}
+  .hero-panel .big{font-size:5rem;line-height:1}
+  .hero-panel p{max-width:22rem;margin:1rem auto 0;color:#FBEED3}
+  .hero-card{position:absolute;left:1rem;bottom:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);padding:.9rem 1rem;max-width:290px;text-align:left}
+  .hero-card p{margin:.15rem 0 0;font-size:.86rem;color:var(--ink-2)}
+  .hero-card strong{font-size:.86rem}
+  .hero-card button{margin-top:.55rem;background:none;border:none;padding:0;color:var(--clay);font-weight:800;font-size:.86rem}
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .trust-inner{max-width:1180px;margin:0 auto;padding:.95rem 1.25rem;display:flex;gap:2rem;flex-wrap:wrap;justify-content:space-between;font-size:.86rem;font-weight:700;color:var(--ink-2)}
+  .trust-inner span{display:inline-flex;gap:.45rem;align-items:center}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--clay);flex:none}
+  section.block{padding:3.6rem 0}
+  .section-head{max-width:640px;margin-bottom:2rem}
+  .section-head h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4vw,2.9rem);line-height:1.05;margin:.55rem 0 .6rem;font-weight:600}
+  .section-head p{color:var(--ink-2);margin:0;font-size:1.02rem}
+  .kicker{font-size:.74rem;letter-spacing:.17em;text-transform:uppercase;font-weight:800;color:var(--clay)}
+  .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  @media(max-width:960px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.product-grid{grid-template-columns:1fr}}
+  .product{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column;gap:.55rem}
+  .product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem}
+  .vessel{width:52px;height:64px;border-radius:9px 9px 13px 13px;position:relative;flex:none;border:1px solid rgba(0,0,0,.12);overflow:hidden}
+  .vessel::before{content:"";position:absolute;left:50%;top:12px;transform:translateX(-50%);width:26px;height:4px;border-radius:99px;background:rgba(255,255,255,.55)}
+  .vessel::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70%;background:rgba(255,244,214,.92)}
+  .v-lav{background:#7A6AA6}.v-van{background:#C89A5B}.v-cit{background:#D9A62E}.v-lin{background:#B9C4B2}.v-oud{background:#5A3A26}.v-man{background:#E08A4A}
+  .badge{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .55rem;border-radius:999px;background:var(--sage-soft);color:var(--sage);white-space:nowrap}
+  .badge.hot{background:var(--clay-soft);color:var(--clay)}
+  .product h3{font-family:"Cormorant Garamond",serif;font-size:1.5rem;line-height:1.05;margin:.2rem 0 0;font-weight:700}
+  .notes{font-size:.9rem;color:var(--ink-2);margin:0}
+  .product-meta{display:flex;gap:1rem;font-size:.8rem;color:var(--muted);font-weight:700;margin-top:.15rem}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.8rem;border-top:1px dashed var(--line)}
+  .price{font-weight:800;font-size:1.05rem}
+  .price small{font-weight:600;color:var(--muted);font-size:.75rem;display:block}
+  .ask-btn{background:var(--surface-2);border:1px solid var(--line-strong);color:var(--ink);border-radius:999px;padding:.5rem .8rem;font-weight:700;font-size:.84rem}
+  .ask-btn:hover{border-color:var(--clay);color:var(--clay)}
+  .demo-note{font-size:.82rem;color:var(--muted);margin-top:1rem}
+  .craft-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;align-items:center}
+  @media(max-width:880px){.craft-grid{grid-template-columns:1fr}}
+  .craft-panel{border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);min-height:380px;background:linear-gradient(150deg,#221509,#A85B2A 60%,#D89A5B);display:grid;place-items:center;color:#FFF4E2;text-align:center;padding:2rem}
+  .craft-panel .big{font-size:4rem;line-height:1}
+  .steps{display:grid;gap:1rem;margin-top:1.4rem}
+  .step{display:flex;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem}
+  .step-num{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;flex:none;font-size:.9rem}
+  .step h3{margin:.15rem 0 .2rem;font-size:1rem}
+  .step p{margin:0;font-size:.92rem;color:var(--ink-2)}
+  .custom{background:var(--ink);color:#FDF3DF;border-radius:var(--radius-lg);overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr}
+  @media(max-width:880px){.custom{grid-template-columns:1fr}}
+  .custom-copy{padding:2.2rem}
+  .custom-copy h2{font-family:"Cormorant Garamond",serif;font-size:2.4rem;line-height:1.05;margin:.5rem 0 .7rem;font-weight:600;color:#fff}
+  .custom-copy p{color:#E7D3AF;margin:0 0 1.1rem}
+  .custom-list{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;gap:.6rem;font-size:.95rem}
+  .custom-list li{display:flex;gap:.6rem;align-items:flex-start}
+  .custom-list li::before{content:"✦";color:#E2A24A;flex:none}
+  .custom-panel{min-height:320px;background:linear-gradient(140deg,#C07A3E,#3A2310);display:grid;place-items:center;color:#FFF4E2;text-align:center;padding:2rem}
+  .custom-panel .big{font-size:4rem;line-height:1}
+  .btn-light{background:#FDF3DF;color:#2B1D12}
+  .btn-light:hover{background:#fff}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem}
+  @media(max-width:880px){.split{grid-template-columns:1fr}}
+  .story-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.8rem}
+  .story-card h2{font-family:"Cormorant Garamond",serif;font-size:2.1rem;margin:.4rem 0 .6rem;line-height:1.05}
+  .story-card p{color:var(--ink-2);margin:0 0 .9rem}
+  .signature{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.4rem;color:var(--clay)}
+  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem}
+  details.faq + details.faq{margin-top:.7rem}
+  details.faq summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";color:var(--clay);font-size:1.2rem;line-height:1}
+  details.faq[open ] summary::after{content:"–"}
+  details.faq p{margin:.6rem 0 0;color:var(--ink-2);font-size:.94rem}
+  .ai-callout{background:var(--clay-soft);border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:2rem;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+  @media(max-width:880px){.ai-callout{grid-template-columns:1fr}}
+  .ai-callout h2{font-family:"Cormorant Garamond",serif;font-size:2.3rem;line-height:1.05;margin:.4rem 0 .6rem}
+  .ai-callout p{margin:0;color:var(--ink-2)}
+  .try-chips{display:flex;flex-wrap:wrap;gap:.55rem}
+  .try-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.6rem .9rem;font-weight:700;font-size:.88rem;text-align:left}
+  .try-chips button:hover{border-color:var(--clay);color:var(--clay)}
+  footer{border-top:1px solid var(--line);padding:2.2rem 0 6.5rem;background:var(--bg-2)}
+  .footer-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+  footer p{color:var(--muted);font-size:.88rem;max-width:38rem}
+  footer a{color:var(--clay);font-weight:700}
+  .chat-fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;background:var(--ink);color:var(--bg);border:none;border-radius:999px;padding:.85rem 1.15rem;display:flex;align-items:center;gap:.6rem;font-weight:800;box-shadow:var(--shadow);font-size:.94rem}
+  .chat-fab .pulse{width:9px;height:9px;border-radius:50%;background:#7BC47F;box-shadow:0 0 0 4px rgba(123,196,127,.25)}
+  .chat-panel{position:fixed;right:1.1rem;bottom:5.2rem;z-index:61;width:min(400px,calc(100vw - 1.4rem));height:min(600px,calc(100dvh - 7rem));background:var(--chat-bg);border:1px solid var(--line-strong);border-radius:22px;box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}
+  .chat-panel.open{display:flex}
+  @media(max-width:560px){.chat-panel{right:.7rem;bottom:5rem}}
+  .chat-head{background:var(--ink);color:#FDF3DF;padding:1rem 1.1rem;display:flex;gap:.8rem;align-items:center}
+  .chat-avatar{width:40px;height:40px;border-radius:50%;background:#C07A3E;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.2rem;color:#fff;flex:none}
+  .chat-head strong{display:block;line-height:1.1;font-size:.98rem}
+  .chat-head span{font-size:.78rem;color:#D8BE93}
+  .chat-head button{margin-left:auto;background:rgba(255,255,255,.12);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1}
+  .chat-body{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;background:var(--surface-2)}
+  .msg{max-width:86%;padding:.7rem .85rem;border-radius:16px;font-size:.92rem;line-height:1.5;white-space:pre-wrap}
+  .msg.bot{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+  .msg.user{background:var(--ink);color:var(--bg);border-bottom-right-radius:5px;align-self:flex-end}
+  .typing{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px;padding:.7rem .9rem;display:none;gap:.3rem}
+  .typing.show{display:flex}
+  .typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+  @keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+  @media (prefers-reduced-motion: reduce){.typing i{animation:none} html{scroll-behavior:auto}}
+  .chat-chips{padding:.65rem .8rem 0;display:flex;gap:.45rem;flex-wrap:wrap;background:var(--surface-2)}
+  .chat-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.42rem .65rem;font-size:.78rem;font-weight:700}
+  .chat-chips button:hover{border-color:var(--clay);color:var(--clay)}
+  .chat-form{display:flex;gap:.5rem;padding:.8rem;border-top:1px solid var(--line);background:var(--chat-bg)}
+  .chat-form input{flex:1;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:.7rem .95rem;font:inherit;font-size:.92rem;min-width:0}
+  .chat-form input:focus{outline:2px solid var(--clay);outline-offset:1px}
+  .chat-form button[type=submit]{background:var(--clay);color:#fff;border:none;border-radius:999px;padding:.7rem 1rem;font-weight:800}
+  .chat-foot{font-size:.7rem;color:var(--muted);text-align:center;padding:0 .8rem .7rem;background:var(--chat-bg)}
+</style>
+</head>
+<body>
+
+<div class="demo-banner"><strong>Apex AI · Concept Demo</strong> This is a concept preview built for Jess Flame — not their live store. Product details &amp; prices are placeholders for the shop to confirm. <a href="#ai-assistant">Try the AI assistant ↓</a></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="Jess Flame home">
+      <span class="mark" aria-hidden="true">🔥</span>
+      <span><span class="brand-name">Jess Flame</span><span class="brand-sub">Poured by hand · Small batch</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#craft">Our Craft</a>
+      <a href="#rooms">Pick by Room</a>
+      <a href="#story">Our Story</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn-clay" type="button" onclick="openChat()">🔥 Ask the Assistant</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Free US shipping over $100 · Poured to order</span>
+        <h1>Light something<br /><em>made by hand.</em></h1>
+        <p class="lede">Every Jess Flame candle is blended, poured, and hand-finished in batches of forty or fewer. Coconut–soy wax, cotton wicks, and scent that stays true from the first burn to the last.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#shop">Shop the collection</a>
+          <button class="btn btn-ghost" type="button" onclick="openChat('What scent should I pick for my bedroom?')">Find my scent →</button>
+        </div>
+        <div class="hero-meta">
+          <div><strong>45–50 hrs</strong><span>Average burn time</span></div>
+          <div><strong>Coconut–soy</strong><span>Clean-burning wax</span></div>
+          <div><strong>2 weeks</strong><span>Cure time</span></div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div>
+          <div class="big">🕯️🔥</div>
+          <p>One person, one studio. Blended, poured, labeled, and boxed by hand before it goes out.</p>
+        </div>
+        <div class="hero-card">
+          <strong>Warm Vanilla Bean — customer favorite</strong>
+          <p>"It fills the whole living room and still smells like something at the bottom of the jar."</p>
+          <button type="button" onclick="openChat('Tell me about Warm Vanilla Bean')">Ask about this →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust"><div class="trust-inner">
+    <span><span class="dot"></span> Batches of forty or fewer</span>
+    <span><span class="dot"></span> Coconut–soy wax, cotton wicks</span>
+    <span><span class="dot"></span> Free US shipping over $100</span>
+  </div></div>
+
+  <section class="block" id="shop">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">The whole collection</span>
+        <h2>Eight scents, <em class="serif" style="color:var(--clay)">all made the same way</em></h2>
+        <p>Candles, a travel tin, a room and body mist, and a melt sampler. Same wax, same wicks, same two-week cure. Ask Ember about any scent — or pick by the room you're in.</p>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="demo-note">* Demo prices are placeholders for Jess Flame to confirm (the live site does not list prices on its homepage). The six scents shown are the ones named on the live site; the remaining two scents in the eight-scent collection are placeholders for the shop to confirm.</p>
+    </div>
+  </section>
+
+  <section class="block" id="craft" style="padding-top:0">
+    <div class="wrap">
+      <div class="craft-grid">
+        <div class="craft-panel"><div><div class="big">✋</div><p style="color:#FBEED3">Blended, poured, labeled, and boxed by hand — in-house, every time.</p></div></div>
+        <div>
+          <span class="kicker">Our craft</span>
+          <h2 class="serif" style="font-size:2.4rem;line-height:1.05;margin:.5rem 0 .6rem">Slow-made, on purpose</h2>
+          <p style="color:var(--ink-2)">Jess Flame candles are poured to order in small batches and cured for two weeks, so the scent carries all the way to the last hour.</p>
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><div><h3>Blended by hand</h3><p>Scents blended in-house — nothing off a shelf, nothing rushed.</p></div></div>
+            <div class="step"><span class="step-num">2</span><div><h3>Poured in batches of forty or fewer</h3><p>Small batches mean every jar gets the same care as the first twelve.</p></div></div>
+            <div class="step"><span class="step-num">3</span><div><h3>Cured for two weeks</h3><p>The cure is what keeps the scent true from first burn to last.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="rooms" style="padding-top:0">
+    <div class="wrap">
+      <div class="custom">
+        <div class="custom-copy">
+          <span class="kicker" style="color:#E8C96A">Not sure where to start</span>
+          <h2>Pick by the room you're in</h2>
+          <p>Three moods, six scents — Ember can narrow it to one.</p>
+          <ul class="custom-list">
+            <li>Wind down — soft florals and warm woods for the end of the day: Lavender Fields, Warm Vanilla Bean. Best in a bedroom or a bath.</li>
+            <li>Wake up the room — citrus and clean linen that cut through a stale kitchen fast: Citrus Grove, Fresh Linen. Bright without being sharp.</li>
+            <li>Set a mood — deeper, smokier blends for dinners and long evenings: Amber &amp; Oud, Mango &amp; Coconut Milk. A double wick fills a big room.</li>
+          </ul>
+          <button class="btn btn-light" type="button" onclick="openChat('What scent should I pick for my bedroom?')">Ask Ember for your room →</button>
+        </div>
+        <div class="custom-panel"><div><div class="big">🏠🕯️</div><p>Bedroom, kitchen, or long evening — there's a scent for it.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="story" style="padding-top:0">
+    <div class="wrap">
+      <div class="split">
+        <div class="story-card">
+          <span class="kicker">The maker</span>
+          <h2>It started with one pot on a kitchen stove</h2>
+          <p>Jess started blending scents because nothing on the shelf smelled like the house she grew up in. The first batch was twelve jars for family. The recipe hasn't changed much since — it just gets poured a little more often now.</p>
+          <p>Everything is still made in-house: blended, poured, labeled, and boxed by hand before it goes out. One person, one studio.</p>
+          <p class="signature">— Jess, Jess Flame</p>
+          <p class="demo-note">Story details are drawn from the shop's live site; prices and the two unnamed scents are placeholders for the shop to confirm.</p>
+        </div>
+        <div id="faq">
+          <span class="kicker">Good to know</span>
+          <h2 class="serif" style="font-size:2.1rem;margin:.4rem 0 1rem;line-height:1.05">Questions, answered</h2>
+          <details class="faq"><summary>What are the eight scents?</summary><p>Lavender Fields, Warm Vanilla Bean, Citrus Grove, Fresh Linen, Amber &amp; Oud, and Mango &amp; Coconut Milk — plus two more scents in the collection (placeholders in this demo for the shop to confirm).</p></details>
+          <details class="faq"><summary>How long do the candles burn?</summary><p>About 45–50 hours on average. Trim the wick before lighting, let the wax melt to the edges on the first burn, and you'll get the full, true scent to the last hour.</p></details>
+          <details class="faq"><summary>What is the wax, and why the two-week cure?</summary><p>Coconut–soy wax with cotton wicks, for a clean burn. The two-week cure lets the scent bind to the wax, so it stays true from the first burn to the last instead of fading halfway down the jar.</p></details>
+          <details class="faq"><summary>Do you ship? Is shipping free?</summary><p>Yes — free US shipping on orders over $100. Shipping options and delivery times beyond that are placeholders in this concept demo, to be confirmed by Jess Flame before launch.</p></details>
+          <details class="faq"><summary>What else do you sell besides candles?</summary><p>A travel tin, a room and body mist, and a melt sampler — same wax, same wicks, same two-week cure. Ask Ember about any of them.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ai-assistant" style="padding-top:0">
+    <div class="wrap">
+      <div class="ai-callout">
+        <div>
+          <span class="kicker">Meet Ember</span>
+          <h2>Answers while Jess is pouring</h2>
+          <p>Ask Ember, the shop assistant — about scents, burn time, shipping, or gifts. It answers instantly, even after hours.</p>
+        </div>
+        <div class="try-chips">
+          <button type="button" onclick="openChat('What scent should I pick for my bedroom?')">🛏️ Scent for my bedroom?</button>
+          <button type="button" onclick="openChat('How long do your candles burn?')">🕯️ How long do they burn?</button>
+          <button type="button" onclick="openChat('Do you offer free shipping?')">📦 Free shipping?</button>
+          <button type="button" onclick="openChat('I need a gift — what do you recommend?')">🎁 Help me pick a gift</button>
+          <button type="button" onclick="openChat('What is the travel tin?')">✈️ Tell me about the travel tin</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <strong class="serif" style="font-size:1.4rem">Jess Flame</strong>
+      <p>Small-batch coconut wax candles, poured by hand and cured slowly. This is an Apex AI concept demo — not the shop's live store. Product details and prices are placeholders for the shop to confirm.</p>
+    </div>
+    <p>Built as a concept by <a href="https://getapexai.dev">Apex AI</a> · Chat assistant Ember answers instantly, 24/7.</p>
+  </div>
+</footer>
+
+<button class="chat-fab" id="chatFab" type="button" onclick="toggleChat()" aria-expanded="false"><span class="pulse" aria-hidden="true"></span> Ask Ember · AI Assistant</button>
+<div class="chat-panel" id="chatPanel" aria-hidden="true">
+  <div class="chat-head">
+    <span class="chat-avatar">E</span>
+    <div><strong>Ember — Jess Flame Assistant</strong><span>Powered by Apex AI · Demo · Replies instantly</span></div>
+    <button type="button" onclick="toggleChat(false)" aria-label="Close chat">×</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="typing" id="typing"><i></i><i></i><i></i></div>
+  <div class="chat-chips" id="chatChips">
+    <button type="button" data-q="What scent should I pick for my bedroom?">Bedroom scent</button>
+    <button type="button" data-q="How long do your candles burn?">Burn time</button>
+    <button type="button" data-q="Do you offer free shipping?">Shipping</button>
+    <button type="button" data-q="I need a gift — what do you recommend?">Gift help</button>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" placeholder="Ask about scents, burn time, shipping…" autocomplete="off" />
+    <button type="submit">Send</button>
+  </form>
+  <div class="chat-foot">Apex AI concept demo — no live checkout here.</div>
+</div>
+
+<script>
+var PRODUCTS = [
+  { name:"Lavender Fields", vessel:"v-lav", badge:"Wind Down", badgeClass:"", notes:"Soft florals · warm woods", mood:"calm, floral, restful", burn:"45–50 hrs", price:"$28", desc:"Soft florals and warm woods for the end of the day — best in a bedroom or a bath." },
+  { name:"Warm Vanilla Bean", vessel:"v-van", badge:"Bestseller", badgeClass:"hot", notes:"Warm vanilla · cozy sweetness", mood:"warm, cozy, crowd-pleasing", burn:"45–50 hrs", price:"$28", desc:"The customer favorite — fills the whole living room and still smells like something at the bottom of the jar." },
+  { name:"Citrus Grove", vessel:"v-cit", badge:"Wake Up", badgeClass:"", notes:"Citrus · bright and clean", mood:"bright, fresh, energizing", burn:"45–50 hrs", price:"$28", desc:"Citrus that cuts through a stale kitchen fast — bright without being sharp. A standing order for many." },
+  { name:"Fresh Linen", vessel:"v-lin", badge:"Wake Up", badgeClass:"", notes:"Clean linen · fresh air", mood:"clean, fresh, airy", burn:"45–50 hrs", price:"$28", desc:"Clean linen freshness — like the room just aired out, all day long." },
+  { name:"Amber & Oud", vessel:"v-oud", badge:"Set a Mood", badgeClass:"", notes:"Deep amber · smoky oud", mood:"deep, smoky, evening", burn:"45–50 hrs", price:"$28", desc:"Deeper and smokier, for dinners and long evenings. A double wick fills a big room." },
+  { name:"Mango & Coconut Milk", vessel:"v-man", badge:"Set a Mood", badgeClass:"hot", notes:"Mango · coconut milk · tropical", mood:"tropical, smooth, warm", burn:"45–50 hrs", price:"$28", desc:"Tropical and smooth — a mood-setter for long evenings and slow weekends." }
+];
+
+function renderProducts(){
+  var grid = document.getElementById('productGrid');
+  var html = '';
+  PRODUCTS.forEach(function(p){
+    html += '<article class="product">'
+      + '<div class="product-top"><span class="vessel ' + p.vessel + '" aria-hidden="true"></span><span class="badge ' + p.badgeClass + '">' + p.badge + '</span></div>'
+      + '<h3>' + p.name + '</h3>'
+      + '<p class="notes">' + p.notes + '</p>'
+      + '<p class="notes" style="color:var(--muted)">' + p.desc + '</p>'
+      + '<div class="product-meta"><span>🕯️ ' + p.burn + '</span><span>Coconut–soy</span></div>'
+      + '<div class="price-row"><span class="price">' + p.price + '<small>demo price*</small></span>'
+      + '<button class="ask-btn" type="button" onclick="askAbout(\'' + p.name.replace(/'/g,"\\'") + '\')">Ask about this →</button></div>'
+      + '</article>';
+  });
+  grid.innerHTML = html;
+}
+renderProducts();
+
+/* ---------- Chat ---------- */
+var chatPanel = document.getElementById('chatPanel');
+var chatBody = document.getElementById('chatBody');
+var chatInput = document.getElementById('chatInput');
+var chatFab = document.getElementById('chatFab');
+var typingEl = document.getElementById('typing');
+var greeted = false;
+
+function toggleChat(force){
+  var open = typeof force === 'boolean' ? force : !chatPanel.classList.contains('open');
+  chatPanel.classList.toggle('open', open);
+  chatPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  chatFab.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(open){
+    if(!greeted){
+      greeted = true;
+      botSay("Hi, I'm Ember — the Jess Flame assistant (Apex AI demo). 🔥\n\nI can help you pick a scent by room or mood, explain burn time and the two-week cure, or sort out shipping. What are you shopping for — yourself, a gift, or a room that needs waking up?");
+    }
+    setTimeout(function(){ chatInput.focus(); }, 80);
+  }
+}
+function openChat(prefill){
+  toggleChat(true);
+  if(prefill){ setTimeout(function(){ sendUser(prefill); }, 350); }
+}
+function askAbout(name){ openChat('Tell me about ' + name); }
+
+function addMsg(text, who){
+  var d = document.createElement('div');
+  d.className = 'msg ' + who;
+  d.textContent = text;
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  return d;
+}
+function botSay(text){
+  typingEl.classList.add('show');
+  chatBody.scrollTop = chatBody.scrollHeight;
+  var delay = 650 + Math.min(text.length * 4, 650);
+  setTimeout(function(){
+    typingEl.classList.remove('show');
+    addMsg(text, 'bot');
+  }, delay);
+}
+function sendUser(text){
+  var t = (text || '').trim();
+  if(!t) return;
+  addMsg(t, 'user');
+  chatInput.value = '';
+  botSay(answer(t));
+}
+
+document.getElementById('chatForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  sendUser(chatInput.value);
+});
+document.getElementById('chatChips').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-q]');
+  if(b) sendUser(b.getAttribute('data-q'));
+});
+
+function findProduct(q){
+  for(var i=0;i<PRODUCTS.length;i++){
+    if(q.indexOf(PRODUCTS[i].name.toLowerCase()) !== -1) return PRODUCTS[i];
+  }
+  if(q.indexOf('lavender')!==-1) return PRODUCTS[0];
+  if(q.indexOf('vanilla')!==-1) return PRODUCTS[1];
+  if(q.indexOf('citrus')!==-1 || q.indexOf('grove')!==-1) return PRODUCTS[2];
+  if(q.indexOf('linen')!==-1) return PRODUCTS[3];
+  if(q.indexOf('amber')!==-1 || q.indexOf('oud')!==-1) return PRODUCTS[4];
+  if(q.indexOf('mango')!==-1 || q.indexOf('coconut')!==-1) return PRODUCTS[5];
+  return null;
+}
+
+function answer(raw){
+  var q = ' ' + raw.toLowerCase().replace(/[^a-z0-9 ]/g,' ') + ' ';
+  var p = findProduct(q);
+  if(p){
+    return p.name + " — " + p.desc + "\n\nNotes: " + p.notes + "\nBurn: ~" + p.burn + " · Demo price: " + p.price + " · Coconut–soy wax, cotton wick, two-week cure.\n\nWant a second option in the same family (" + p.mood + "), or is this for a gift?";
+  }
+  if(/\b(hi|hello|hey|morning|afternoon)\b/.test(q)) return "Hello! Welcome to Jess Flame. 🔥 Tell me the room or the mood — wind down, wake up, or set a mood — and I'll point you to the right scent. Shopping for yourself or a gift?";
+  if(q.indexOf('bedroom')!==-1 || q.indexOf('bath')!==-1 || q.indexOf('wind down')!==-1 || q.indexOf('relax')!==-1 || q.indexOf('calm')!==-1){
+    return "For winding down, go soft florals and warm woods: 🛏️\n\n• Lavender Fields — soft florals, made for bedrooms and baths\n• Warm Vanilla Bean — warm, cozy, the customer favorite\n\nLavender Fields is the one I'd start with for sleep. Want the burn time on either?";
+  }
+  if(q.indexOf('kitchen')!==-1 || q.indexOf('fresh')!==-1 || q.indexOf('clean')!==-1 || q.indexOf('wake')!==-1){
+    return "To wake a room up, go citrus and clean linen: 🍋\n\n• Citrus Grove — bright citrus that cuts through a stale kitchen fast\n• Fresh Linen — clean, airy, like the room just aired out\n\nCitrus Grove is the standing order for a lot of folks. Want a warmer contrast for evenings?";
+  }
+  if(q.indexOf('mood')!==-1 || q.indexOf('evening')!==-1 || q.indexOf('dinner')!==-1 || q.indexOf('smoky')!==-1 || q.indexOf('bold')!==-1){
+    return "For setting a mood, go deeper and smokier: 🌆\n\n• Amber & Oud — deep amber and smoky oud, for dinners and long evenings\n• Mango & Coconut Milk — tropical and smooth, a slow-weekend scent\n\nAmber & Oud with a double wick fills a big room. Want burn time or gift options?";
+  }
+  if(q.indexOf('scent')!==-1 || q.indexOf('smell')!==-1 || q.indexOf('fragrance')!==-1){
+    return "Here's the collection — all coconut–soy, 45–50 hr burn, two-week cure:\n\n• Lavender Fields — soft florals, warm woods\n• Warm Vanilla Bean — warm, cozy sweetness\n• Citrus Grove — bright citrus\n• Fresh Linen — clean linen\n• Amber & Oud — deep amber, smoky oud\n• Mango & Coconut Milk — tropical, smooth\n\nPlus two more scents in the eight-scent collection (placeholders in this demo for the shop to confirm). Tell me a room or mood and I'll pick your match.";
+  }
+  if(q.indexOf('burn')!==-1 || q.indexOf('how long')!==-1 || q.indexOf('last')!==-1){
+    return "Jess Flame candles burn about 45–50 hours on average. 🕯️\n\nFor the best burn:\n• Trim the wick before lighting\n• First burn: let the wax melt all the way to the edges\n• The two-week cure is what keeps the scent true to the last hour\n\nWant help picking one by scent instead?";
+  }
+  if(q.indexOf('cure')!==-1 || q.indexOf('wax')!==-1 || q.indexOf('coconut')!==-1 || q.indexOf('soy')!==-1 || q.indexOf('ingredient')!==-1){
+    return "Every Jess Flame candle is coconut–soy wax with cotton wicks, poured in batches of forty or fewer, then cured for two weeks. 🌱\n\nThe cure lets the scent bind to the wax — that's why it stays true from the first burn to the last instead of fading halfway down the jar. Want a scent recommendation?";
+  }
+  if(q.indexOf('ship')!==-1 || q.indexOf('deliver')!==-1 || q.indexOf('free shipping')!==-1 || q.indexOf('pickup')!==-1 || q.indexOf('pick up')!==-1){
+    return "Good news: Jess Flame offers free US shipping on orders over $100. 📦\n\nOther shipping options and delivery times are placeholders in this concept demo, to be confirmed by the shop before launch. On the live version I'd confirm your ZIP and give you exact options here. Want me to help you pick a scent while you're here?";
+  }
+  if(q.indexOf('price')!==-1 || q.indexOf('cost')!==-1 || q.indexOf('how much')!==-1){
+    return "Demo pricing in this concept: candles at $28 (demo price).\n\nHeads up: these are placeholder demo prices for Jess Flame to confirm — the live site doesn't list prices on its homepage — and there's no live checkout in this concept. Want me to match a candle to your room or budget?";
+  }
+  if(q.indexOf('tin')!==-1 || q.indexOf('travel')!==-1){
+    return "The travel tin is the same Jess Flame candle in a go-anywhere size — same coconut–soy wax, same wicks, same two-week cure. ✈️\n\nPerfect for trips, desks, and trying a scent before committing to a full jar. Price is a placeholder in this demo for the shop to confirm. Want a scent pick for the tin?";
+  }
+  if(q.indexOf('mist')!==-1 || q.indexOf('room')!==-1 && q.indexOf('body')!==-1){
+    return "The room and body mist carries the same Jess Flame scents without a flame — same blends, same two-week standard. 🌸\n\nGreat for a quick refresh between burns. Price is a placeholder in this demo for the shop to confirm. Which scent would you want it in?";
+  }
+  if(q.indexOf('melt')!==-1 || q.indexOf('sampler')!==-1 || q.indexOf('wax melt')!==-1){
+    return "The melt sampler is the try-them-all route — Jess Flame scents as wax melts, same coconut–soy wax and two-week cure. 🫧\n\nIdeal if you can't pick one scent yet. Price is a placeholder in this demo for the shop to confirm. Want me to narrow the scents first?";
+  }
+  if(q.indexOf('gift')!==-1){
+    return "Love it — hand-poured candles make a real gift, especially with the handwritten thank-you card in the box. 🎁\n\nSafe bets:\n• Warm Vanilla Bean ($28 demo) — the customer favorite, fills a living room\n• Citrus Grove ($28 demo) — bright, a standing order for many\n• Lavender Fields ($28 demo) — calm and lovely for a bedroom\n\nWho's it for, and do they lean warm, fresh, or floral? I'll narrow it to one.";
+  }
+  if(q.indexOf('batch')!==-1 || q.indexOf('small batch')!==-1 || q.indexOf('pour')!==-1 || q.indexOf('hand')!==-1){
+    return "Small batch is the whole point here: every Jess Flame candle is poured in batches of forty or fewer, in-house. 🔥\n\nBlended, poured, labeled, and boxed by hand — one person, one studio. That's why the scent stays consistent jar to jar. Want to pick your scent?";
+  }
+  if(q.indexOf('jess')!==-1 || q.indexOf('owner')!==-1 || q.indexOf('founder')!==-1 || q.indexOf('story')!==-1 || q.indexOf('who')!==-1){
+    return "Jess Flame started with one pot on a kitchen stove. 🍳 Jess began blending scents because nothing on the shelf smelled like the house she grew up in — the first batch was twelve jars for family.\n\nThe recipe hasn't changed much since. Everything is still made in-house, by hand. Want help with a scent while you're here?";
+  }
+  if(q.indexOf('order')!==-1 || q.indexOf('buy')!==-1 || q.indexOf('checkout')!==-1 || q.indexOf('cart')!==-1){
+    return "Quick heads-up: this is an Apex AI concept demo, so there's no live checkout here — I'm showing how ordering questions would be handled on the real store. 🛍️\n\nWant me to help you choose the candle first so you know exactly what to order?";
+  }
+  if(q.indexOf('contact')!==-1 || q.indexOf('email')!==-1 || q.indexOf('human')!==-1 || q.indexOf('phone')!==-1){
+    return "You can reach the shop through jessflame.com — and in this demo, I'm your fastest answer for scent picks, burn time, and shipping. 📧\n\nOr keep chatting — what's on your mind?";
+  }
+  if(q.indexOf('thank')!==-1) return "You're so welcome! 🔥 If you want, tell me the room you're shopping for and I'll leave you with one perfect pick.";
+  if(q.indexOf('apex')!==-1 || q.indexOf('demo')!==-1 || q.indexOf('chatbot')!==-1 || q.indexOf('ai')!==-1){
+    return "This assistant is the Apex AI demo piece — it shows how Jess Flame's site could answer shopper questions instantly, 24/7, while Jess is pouring. On a live build it would connect to real inventory, shipping, and order details.\n\nWant to keep testing me? Ask about a scent, a room, or shipping.";
+  }
+  if(q.indexOf('recommend')!==-1 || q.indexOf('best')!==-1 || q.indexOf('which')!==-1){
+    return "If you're not sure where to start, tell me the room: 🔥\n\n• Bedroom or bath → Lavender Fields or Warm Vanilla Bean\n• Kitchen or bright spaces → Citrus Grove or Fresh Linen\n• Evenings & dinners → Amber & Oud or Mango & Coconut Milk\n\nWhich room are we shopping for?";
+  }
+  return "I can help with that — let me point you the right way. 🔥\n\nI know the lineup best by room:\n• Wind down → Lavender Fields, Warm Vanilla Bean\n• Wake up → Citrus Grove, Fresh Linen\n• Set a mood → Amber & Oud, Mango & Coconut Milk\n\nOr ask me about burn time, the two-week cure, shipping, or gifts. Which sounds like you?";
+}
+</script>
+</body>
+</html>

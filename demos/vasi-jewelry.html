@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>VASI Jewelry — Concept Demo by Apex AI</title>
+<meta name="description" content="Concept demo of VASI Jewelry — handmade luxury jewelry in Columbus, OH: 18k gold and sterling silver rings, hoops, and necklaces. With an Apex AI assistant baked in." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF8F3; --bg-2:#F4EDE1; --surface:#FFFFFF; --surface-2:#FDFBF7;
+    --ink:#211D18; --ink-2:#4E463C; --muted:#857A6B; --line:#E8DFCE; --line-strong:#CBBFA4;
+    --gold:#8C6D2F; --gold-bright:#A8873F; --gold-soft:#F3EAD0;
+    --onyx:#211D18; --onyx-soft:#ECE5D8;
+    --banner-bg:#1A1712; --banner-ink:#F7EDD8; --chat-bg:#FFFFFF;
+    --shadow:0 18px 44px rgba(40,30,10,.14); --shadow-sm:0 6px 20px rgba(40,30,10,.10);
+    --radius:18px; --radius-lg:26px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#16130F; --bg-2:#1D1913; --surface:#231E16; --surface-2:#282219;
+      --ink:#F5EDDD; --ink-2:#D8CDB6; --muted:#B3A78F; --line:#382F22; --line-strong:#54452E;
+      --gold:#D9BC6A; --gold-bright:#E8C96A; --gold-soft:#33291A;
+      --onyx:#F5EDDD; --onyx-soft:#2A241B;
+      --banner-bg:#0D0B08; --banner-ink:#F7EDD8; --chat-bg:#231E16;
+      --shadow:0 18px 44px rgba(0,0,0,.45); --shadow-sm:0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  .serif{font-family:"Cormorant Garamond",Georgia,serif}
+  .demo-banner{background:var(--banner-bg);color:var(--banner-ink);font-size:.82rem;padding:.6rem 1rem;text-align:center;line-height:1.45}
+  .demo-banner strong{letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;background:#A8873F;color:#fff;padding:.18rem .5rem;border-radius:999px;margin-right:.5rem;vertical-align:1px;white-space:nowrap}
+  .demo-banner a{color:#E8C96A;text-decoration:underline;text-underline-offset:2px}
+  .site-header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .header-inner{max-width:1180px;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+  .mark{width:38px;height:38px;border-radius:10px;background:var(--onyx);color:var(--bg);display:grid;place-items:center;flex:none;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.2rem}
+  .brand-name{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.6rem;line-height:1;letter-spacing:.14em}
+  .brand-sub{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:.15rem;display:block}
+  nav.main-nav{display:flex;gap:1.35rem;align-items:center;font-size:.92rem;font-weight:600}
+  nav.main-nav a{text-decoration:none;color:var(--ink-2)}
+  nav.main-nav a:hover{color:var(--gold)}
+  @media(max-width:720px){ nav.main-nav{display:none} }
+  .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.68rem 1.15rem;font-weight:700;font-size:.92rem;text-decoration:none;border:1px solid transparent;transition:transform .15s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--ink);color:var(--bg)}
+  .btn-primary:hover{background:var(--gold)}
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-gold:hover{background:var(--gold-bright)}
+  .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+  .hero{padding:3.2rem 0 2.6rem}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:2.5rem;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold);background:var(--gold-soft);padding:.42rem .75rem;border-radius:999px}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(2.9rem,6vw,4.6rem);line-height:.98;font-weight:600;margin:1rem 0 .9rem;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p.lede{font-size:1.13rem;color:var(--ink-2);max-width:34rem;margin:0 0 1.5rem}
+  .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.7rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+  .hero-meta div strong{display:block;font-family:"Cormorant Garamond",serif;font-size:1.35rem;line-height:1}
+  .hero-meta div span{font-size:.8rem;color:var(--muted);font-weight:600}
+  .hero-panel{position:relative;border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;background:linear-gradient(140deg,#1A1712,#4A3A1E 55%,#8C6D2F);min-height:440px;display:grid;place-items:center;text-align:center;padding:2rem;color:#F7EDD8}
+  .hero-panel .big{font-size:5rem;line-height:1}
+  .hero-panel p{max-width:22rem;margin:1rem auto 0;color:#EADFC2}
+  .hero-card{position:absolute;left:1rem;bottom:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);padding:.9rem 1rem;max-width:290px;text-align:left}
+  .hero-card p{margin:.15rem 0 0;font-size:.86rem;color:var(--ink-2)}
+  .hero-card strong{font-size:.86rem}
+  .hero-card button{margin-top:.55rem;background:none;border:none;padding:0;color:var(--gold);font-weight:800;font-size:.86rem}
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .trust-inner{max-width:1180px;margin:0 auto;padding:.95rem 1.25rem;display:flex;gap:2rem;flex-wrap:wrap;justify-content:space-between;font-size:.86rem;font-weight:700;color:var(--ink-2)}
+  .trust-inner span{display:inline-flex;gap:.45rem;align-items:center}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none}
+  section.block{padding:3.6rem 0}
+  .section-head{max-width:640px;margin-bottom:2rem}
+  .section-head h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4vw,2.9rem);line-height:1.05;margin:.55rem 0 .6rem;font-weight:600}
+  .section-head p{color:var(--ink-2);margin:0;font-size:1.02rem}
+  .kicker{font-size:.74rem;letter-spacing:.17em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+  .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  @media(max-width:960px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.product-grid{grid-template-columns:1fr}}
+  .product{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column;gap:.55rem}
+  .product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem}
+  .gem{width:52px;height:52px;border-radius:50%;position:relative;flex:none;border:1px solid rgba(0,0,0,.12);display:grid;place-items:center;font-size:1.3rem}
+  .g-gold{background:linear-gradient(140deg,#E8C96A,#8C6D2F)}.g-silver{background:linear-gradient(140deg,#F2F2F2,#B9B9B9)}.g-agate{background:linear-gradient(140deg,#7A2E2E,#3A1515)}.g-dome{background:linear-gradient(140deg,#D9BC6A,#6B5220)}.g-sparrow{background:linear-gradient(140deg,#EADFC2,#B99F6B)}.g-eclipse{background:linear-gradient(140deg,#3A332A,#14100C)}
+  .badge{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .55rem;border-radius:999px;background:var(--gold-soft);color:var(--gold);white-space:nowrap}
+  .badge.hot{background:var(--onyx-soft);color:var(--ink)}
+  .badge.sold{background:#F1E3E3;color:#8A3A3A}
+  .product h3{font-family:"Cormorant Garamond",serif;font-size:1.5rem;line-height:1.05;margin:.2rem 0 0;font-weight:700}
+  .notes{font-size:.9rem;color:var(--ink-2);margin:0}
+  .product-meta{display:flex;gap:1rem;font-size:.8rem;color:var(--muted);font-weight:700;margin-top:.15rem}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.8rem;border-top:1px dashed var(--line)}
+  .price{font-weight:800;font-size:1.05rem}
+  .price small{font-weight:600;color:var(--muted);font-size:.75rem;display:block}
+  .ask-btn{background:var(--surface-2);border:1px solid var(--line-strong);color:var(--ink);border-radius:999px;padding:.5rem .8rem;font-weight:700;font-size:.84rem}
+  .ask-btn:hover{border-color:var(--gold);color:var(--gold)}
+  .demo-note{font-size:.82rem;color:var(--muted);margin-top:1rem}
+  .craft-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;align-items:center}
+  @media(max-width:880px){.craft-grid{grid-template-columns:1fr}}
+  .craft-panel{border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);min-height:380px;background:linear-gradient(150deg,#1A1712,#4A3A1E 60%,#8C6D2F);display:grid;place-items:center;color:#F7EDD8;text-align:center;padding:2rem}
+  .craft-panel .big{font-size:4rem;line-height:1}
+  .steps{display:grid;gap:1rem;margin-top:1.4rem}
+  .step{display:flex;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem}
+  .step-num{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;flex:none;font-size:.9rem}
+  .step h3{margin:.15rem 0 .2rem;font-size:1rem}
+  .step p{margin:0;font-size:.92rem;color:var(--ink-2)}
+  .custom{background:var(--ink);color:#F7EDD8;border-radius:var(--radius-lg);overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr}
+  @media(max-width:880px){.custom{grid-template-columns:1fr}}
+  .custom-copy{padding:2.2rem}
+  .custom-copy h2{font-family:"Cormorant Garamond",serif;font-size:2.4rem;line-height:1.05;margin:.5rem 0 .7rem;font-weight:600;color:#fff}
+  .custom-copy p{color:#EADFC2;margin:0 0 1.1rem}
+  .custom-list{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;gap:.6rem;font-size:.95rem}
+  .custom-list li{display:flex;gap:.6rem;align-items:flex-start}
+  .custom-list li::before{content:"✦";color:#E8C96A;flex:none}
+  .custom-panel{min-height:320px;background:linear-gradient(140deg,#8C6D2F,#1A1712);display:grid;place-items:center;color:#F7EDD8;text-align:center;padding:2rem}
+  .custom-panel .big{font-size:4rem;line-height:1}
+  .btn-light{background:#F7EDD8;color:#211D18}
+  .btn-light:hover{background:#fff}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem}
+  @media(max-width:880px){.split{grid-template-columns:1fr}}
+  .story-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.8rem}
+  .story-card h2{font-family:"Cormorant Garamond",serif;font-size:2.1rem;margin:.4rem 0 .6rem;line-height:1.05}
+  .story-card p{color:var(--ink-2);margin:0 0 .9rem}
+  .signature{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.4rem;color:var(--gold)}
+  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem}
+  details.faq + details.faq{margin-top:.7rem}
+  details.faq summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";color:var(--gold);font-size:1.2rem;line-height:1}
+  details.faq[open ] summary::after{content:"–"}
+  details.faq p{margin:.6rem 0 0;color:var(--ink-2);font-size:.94rem}
+  .ai-callout{background:var(--gold-soft);border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:2rem;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+  @media(max-width:880px){.ai-callout{grid-template-columns:1fr}}
+  .ai-callout h2{font-family:"Cormorant Garamond",serif;font-size:2.3rem;line-height:1.05;margin:.4rem 0 .6rem}
+  .ai-callout p{margin:0;color:var(--ink-2)}
+  .try-chips{display:flex;flex-wrap:wrap;gap:.55rem}
+  .try-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.6rem .9rem;font-weight:700;font-size:.88rem;text-align:left}
+  .try-chips button:hover{border-color:var(--gold);color:var(--gold)}
+  footer{border-top:1px solid var(--line);padding:2.2rem 0 6.5rem;background:var(--bg-2)}
+  .footer-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+  footer p{color:var(--muted);font-size:.88rem;max-width:38rem}
+  footer a{color:var(--gold);font-weight:700}
+  .chat-fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;background:var(--ink);color:var(--bg);border:none;border-radius:999px;padding:.85rem 1.15rem;display:flex;align-items:center;gap:.6rem;font-weight:800;box-shadow:var(--shadow);font-size:.94rem}
+  .chat-fab .pulse{width:9px;height:9px;border-radius:50%;background:#7BC47F;box-shadow:0 0 0 4px rgba(123,196,127,.25)}
+  .chat-panel{position:fixed;right:1.1rem;bottom:5.2rem;z-index:61;width:min(400px,calc(100vw - 1.4rem));height:min(600px,calc(100dvh - 7rem));background:var(--chat-bg);border:1px solid var(--line-strong);border-radius:22px;box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}
+  .chat-panel.open{display:flex}
+  @media(max-width:560px){.chat-panel{right:.7rem;bottom:5rem}}
+  .chat-head{background:var(--ink);color:#F7EDD8;padding:1rem 1.1rem;display:flex;gap:.8rem;align-items:center}
+  .chat-avatar{width:40px;height:40px;border-radius:50%;background:#8C6D2F;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.2rem;color:#fff;flex:none}
+  .chat-head strong{display:block;line-height:1.1;font-size:.98rem}
+  .chat-head span{font-size:.78rem;color:#D8CDB6}
+  .chat-head button{margin-left:auto;background:rgba(255,255,255,.12);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1}
+  .chat-body{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;background:var(--surface-2)}
+  .msg{max-width:86%;padding:.7rem .85rem;border-radius:16px;font-size:.92rem;line-height:1.5;white-space:pre-wrap}
+  .msg.bot{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+  .msg.user{background:var(--ink);color:var(--bg);border-bottom-right-radius:5px;align-self:flex-end}
+  .typing{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px;padding:.7rem .9rem;display:none;gap:.3rem}
+  .typing.show{display:flex}
+  .typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+  @keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+  @media (prefers-reduced-motion: reduce){.typing i{animation:none} html{scroll-behavior:auto}}
+  .chat-chips{padding:.65rem .8rem 0;display:flex;gap:.45rem;flex-wrap:wrap;background:var(--surface-2)}
+  .chat-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.42rem .65rem;font-size:.78rem;font-weight:700}
+  .chat-chips button:hover{border-color:var(--gold);color:var(--gold)}
+  .chat-form{display:flex;gap:.5rem;padding:.8rem;border-top:1px solid var(--line);background:var(--chat-bg)}
+  .chat-form input{flex:1;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:.7rem .95rem;font:inherit;font-size:.92rem;min-width:0}
+  .chat-form input:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .chat-form button[type=submit]{background:var(--gold);color:#fff;border:none;border-radius:999px;padding:.7rem 1rem;font-weight:800}
+  .chat-foot{font-size:.7rem;color:var(--muted);text-align:center;padding:0 .8rem .7rem;background:var(--chat-bg)}
+</style>
+</head>
+<body>
+
+<div class="demo-banner"><strong>Apex AI · Concept Demo</strong> This is a concept preview built for VASI Jewelry — not their live store. Product details &amp; prices are placeholders for the shop to confirm. <a href="#ai-assistant">Try the AI assistant ↓</a></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="VASI Jewelry home">
+      <span class="mark" aria-hidden="true">V</span>
+      <span><span class="brand-name">VASI</span><span class="brand-sub">Columbus, OH · Handmade Luxury</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#materials">Materials</a>
+      <a href="#made-to-order">Made to Order</a>
+      <a href="#story">Our Story</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn-gold" type="button" onclick="openChat()">✦ Ask the Assistant</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Free US shipping over $50 · Handmade in Columbus, OH</span>
+        <h1>Fine jewelry, meant to be <em>seen, worn &amp; loved.</em></h1>
+        <p class="lede">Handmade luxury in 18k gold and sterling silver — rings, hoops, and necklaces made to be worn every day and kept for years. No two irregular stones are ever alike.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#shop">Shop best sellers</a>
+          <button class="btn btn-ghost" type="button" onclick="openChat('What size ring should I order?')">Find my ring size →</button>
+        </div>
+        <div class="hero-meta">
+          <div><strong>18k Gold</strong><span>&amp; sterling silver</span></div>
+          <div><strong>Handmade</strong><span>Small-batch luxury</span></div>
+          <div><strong>Free US Ship</strong><span>On orders over $50</span></div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div>
+          <div class="big">💍✦</div>
+          <p>Irregular gemstones, dome rings, and hoops — each piece finished by hand in Columbus, Ohio.</p>
+        </div>
+        <div class="hero-card">
+          <strong>Initial Letter Rings — $32.99</strong>
+          <p>The best seller. A personal initial, made to be worn every day.</p>
+          <button type="button" onclick="openChat('Tell me about Initial Letter Rings')">Ask about this →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust"><div class="trust-inner">
+    <span><span class="dot"></span> 18k gold &amp; sterling silver</span>
+    <span><span class="dot"></span> Handmade in Columbus, OH</span>
+    <span><span class="dot"></span> Free US shipping over $50</span>
+  </div></div>
+
+  <section class="block" id="shop">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Best sellers</span>
+        <h2>Loved, worn &amp; <em class="serif" style="color:var(--gold)">re-ordered</em></h2>
+        <p>The pieces shoppers come back for. Ask Aurelia about any of them — sizing, materials, made-to-order timing, or which one makes the best gift.</p>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="demo-note">* Prices shown from the shop's live listings at time of concept and are placeholders for VASI Jewelry to confirm. Made-to-order timing, size availability, and return details are placeholders for the shop to confirm.</p>
+    </div>
+  </section>
+
+  <section class="block" id="materials" style="padding-top:0">
+    <div class="wrap">
+      <div class="craft-grid">
+        <div class="craft-panel"><div><div class="big">✦</div><p style="color:#EADFC2">18k gold. Sterling silver. Irregular stones, chosen one by one.</p></div></div>
+        <div>
+          <span class="kicker">Materials</span>
+          <h2 class="serif" style="font-size:2.4rem;line-height:1.05;margin:.5rem 0 .6rem">Made to be worn every day</h2>
+          <p style="color:var(--ink-2)">VASI pieces are handmade luxury — real metals, real stones, and finishes meant to survive daily wear, not just a special occasion.</p>
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><div><h3>18k gold &amp; sterling silver</h3><p>The two metals of the collection — warm gold and bright silver, both made for daily wear.</p></div></div>
+            <div class="step"><span class="step-num">2</span><div><h3>Irregular, one-of-a-kind stones</h3><p>Agate and gemstone pieces are cut irregular on purpose — your stone is never exactly anyone else's.</p></div></div>
+            <div class="step"><span class="step-num">3</span><div><h3>Finished by hand</h3><p>Each piece is handmade in Columbus, Ohio, and checked before it ships.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="made-to-order" style="padding-top:0">
+    <div class="wrap">
+      <div class="custom">
+        <div class="custom-copy">
+          <span class="kicker" style="color:#E8C96A">Made to order</span>
+          <h2>Your piece, made when you order it</h2>
+          <p>Many VASI pieces are made to order — which means your ring or necklace is finished for you, not pulled from a warehouse shelf.</p>
+          <ul class="custom-list">
+            <li>Initial Letter Rings — your letter, your metal</li>
+            <li>Irregular gemstone rings — your stone is one of a kind</li>
+            <li>Made-to-order timing varies by piece — ask Aurelia (timing is a placeholder for the shop to confirm)</li>
+          </ul>
+          <button class="btn btn-light" type="button" onclick="openChat('How long does a made-to-order ring take?')">Ask Aurelia about timing →</button>
+        </div>
+        <div class="custom-panel"><div><div class="big">💍</div><p>Made for you, not for a shelf.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="story" style="padding-top:0">
+    <div class="wrap">
+      <div class="split">
+        <div class="story-card">
+          <span class="kicker">Our story</span>
+          <h2>Handmade luxury from Columbus, Ohio</h2>
+          <p>VASI Jewelry makes handmade luxury jewelry — 18k gold and sterling silver rings, hoops, and necklaces — from its Columbus, Ohio workshop. The best sellers tell the story: initial rings made personal, irregular gemstones made one of a kind, and dome rings made to catch the light.</p>
+          <p>Every piece is meant to be seen, worn, and loved — not kept in a box.</p>
+          <p class="signature">— VASI Jewelry</p>
+          <p class="demo-note">Shop story details are placeholders for the shop to confirm; the owner's name is not public.</p>
+        </div>
+        <div id="faq">
+          <span class="kicker">Good to know</span>
+          <h2 class="serif" style="font-size:2.1rem;margin:.4rem 0 1rem;line-height:1.05">Questions, answered</h2>
+          <details class="faq"><summary>How do I find my ring size?</summary><p>Measure the finger you'll wear the ring on, at the end of the day when fingers are warmest. If you're between sizes, most people size up — especially for wider dome bands. A printable size guide and exchange details are placeholders in this demo for the shop to confirm.</p></details>
+          <details class="faq"><summary>What materials do you use?</summary><p>18k gold and sterling silver across the collection. Irregular gemstone pieces use natural stones, so each one varies slightly — that's the point, not a flaw.</p></details>
+          <details class="faq"><summary>How long does a made-to-order piece take?</summary><p>Made-to-order timing varies by piece and is a placeholder in this concept demo, to be confirmed by VASI Jewelry before launch. On the live version, Aurelia would give you an exact window for the piece you pick.</p></details>
+          <details class="faq"><summary>Do you ship? Is shipping free?</summary><p>Yes — free US shipping on orders over $50. Other shipping options and delivery times are placeholders in this concept demo, to be confirmed by the shop before launch.</p></details>
+          <details class="faq"><summary>What if my piece doesn't fit or I change my mind?</summary><p>Return and exchange details are placeholders in this concept demo, to be confirmed by VASI Jewelry before launch. Ask Aurelia and she'll point you to the shop's current policy.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ai-assistant" style="padding-top:0">
+    <div class="wrap">
+      <div class="ai-callout">
+        <div>
+          <span class="kicker">Meet Aurelia</span>
+          <h2>Answers while the workshop is busy</h2>
+          <p>Ask Aurelia, the shop assistant — about ring sizing, materials, made-to-order timing, or gifts. It answers instantly, even after hours.</p>
+        </div>
+        <div class="try-chips">
+          <button type="button" onclick="openChat('What size ring should I order?')">💍 What size should I order?</button>
+          <button type="button" onclick="openChat('What materials do you use?')">✦ What materials?</button>
+          <button type="button" onclick="openChat('How long does a made-to-order ring take?')">⏳ Made-to-order timing?</button>
+          <button type="button" onclick="openChat('I need a gift — what do you recommend?')">🎁 Help me pick a gift</button>
+          <button type="button" onclick="openChat('Do you offer free shipping?')">📦 Free shipping?</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <strong class="serif" style="font-size:1.4rem">VASI Jewelry</strong>
+      <p>Handmade luxury jewelry · Columbus, OH. This is an Apex AI concept demo — not the shop's live store. Product details, prices, and policies are placeholders for the shop to confirm.</p>
+    </div>
+    <p>Built as a concept by <a href="https://getapexai.dev">Apex AI</a> · Chat assistant Aurelia answers instantly, 24/7.</p>
+  </div>
+</footer>
+
+<button class="chat-fab" id="chatFab" type="button" onclick="toggleChat()" aria-expanded="false"><span class="pulse" aria-hidden="true"></span> Ask Aurelia · AI Assistant</button>
+<div class="chat-panel" id="chatPanel" aria-hidden="true">
+  <div class="chat-head">
+    <span class="chat-avatar">A</span>
+    <div><strong>Aurelia — VASI Jewelry Assistant</strong><span>Powered by Apex AI · Demo · Replies instantly</span></div>
+    <button type="button" onclick="toggleChat(false)" aria-label="Close chat">×</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="typing" id="typing"><i></i><i></i><i></i></div>
+  <div class="chat-chips" id="chatChips">
+    <button type="button" data-q="What size ring should I order?">Ring size</button>
+    <button type="button" data-q="What materials do you use?">Materials</button>
+    <button type="button" data-q="How long does a made-to-order ring take?">Timing</button>
+    <button type="button" data-q="Do you offer free shipping?">Shipping</button>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" placeholder="Ask about sizing, materials, timing…" autocomplete="off" />
+    <button type="submit">Send</button>
+  </form>
+  <div class="chat-foot">Apex AI concept demo — no live checkout here.</div>
+</div>
+
+<script>
+var PRODUCTS = [
+  { name:"Initial Letter Rings", gem:"g-gold", badge:"Bestseller", badgeClass:"", notes:"18k gold & sterling silver · your initial", mood:"personal, everyday, giftable", price:"$32.99", desc:"The best seller — a personal initial, made to be worn every day. Pick your letter and your metal." },
+  { name:"Irregular Gemstone Ring", gem:"g-agate", badge:"One of a Kind", badgeClass:"hot", notes:"18k gold · chunky crimson agate", mood:"bold, natural, unique", price:"$52.00", desc:"A chunky crimson agate in 18k gold, cut irregular on purpose — no two stones are ever alike." },
+  { name:"Carissa Dome Ring", gem:"g-dome", badge:"Best Seller", badgeClass:"", notes:"Dome silhouette · catches the light", mood:"classic, luminous, everyday", price:"$52.00", desc:"A smooth dome silhouette that catches the light — the everyday-luxury staple of the collection." },
+  { name:"Eclipse Hoops", gem:"g-eclipse", badge:"Hoops", badgeClass:"", notes:"Hoop earrings · 18k gold & silver", mood:"sleek, versatile, everyday", price:"$42.00", desc:"Sleek hoops for every day — light enough to forget, polished enough to notice." },
+  { name:"Irregular Stone Dome Ring", gem:"g-silver", badge:"One of a Kind", badgeClass:"", notes:"Irregular stone · dome setting", mood:"organic, unique, statement", price:"$53.00", desc:"An irregular stone set in a dome — organic shape, luxury finish, entirely your own." },
+  { name:"Lil Sparrow Necklace", gem:"g-sparrow", badge:"Sold Out", badgeClass:"sold", notes:"Necklace · $530 · currently sold out", mood:"delicate, heirloom, special", price:"$530.00", desc:"Currently sold out on the live shop — shown here so shoppers can ask about restocks. Ask Aurelia about availability." }
+];
+
+function renderProducts(){
+  var grid = document.getElementById('productGrid');
+  var html = '';
+  PRODUCTS.forEach(function(p){
+    html += '<article class="product">'
+      + '<div class="product-top"><span class="gem ' + p.gem + '" aria-hidden="true">✦</span><span class="badge ' + p.badgeClass + '">' + p.badge + '</span></div>'
+      + '<h3>' + p.name + '</h3>'
+      + '<p class="notes">' + p.notes + '</p>'
+      + '<p class="notes" style="color:var(--muted)">' + p.desc + '</p>'
+      + '<div class="product-meta"><span>✦ Handmade</span><span>Columbus, OH</span></div>'
+      + '<div class="price-row"><span class="price">' + p.price + '<small>demo price*</small></span>'
+      + '<button class="ask-btn" type="button" onclick="askAbout(\'' + p.name.replace(/'/g,"\\'") + '\')">Ask about this →</button></div>'
+      + '</article>';
+  });
+  grid.innerHTML = html;
+}
+renderProducts();
+
+/* ---------- Chat ---------- */
+var chatPanel = document.getElementById('chatPanel');
+var chatBody = document.getElementById('chatBody');
+var chatInput = document.getElementById('chatInput');
+var chatFab = document.getElementById('chatFab');
+var typingEl = document.getElementById('typing');
+var greeted = false;
+
+function toggleChat(force){
+  var open = typeof force === 'boolean' ? force : !chatPanel.classList.contains('open');
+  chatPanel.classList.toggle('open', open);
+  chatPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  chatFab.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(open){
+    if(!greeted){
+      greeted = true;
+      botSay("Hi, I'm Aurelia — the VASI Jewelry assistant (Apex AI demo). ✦\n\nI can help with ring sizing, materials, made-to-order timing, or finding a gift. What are you shopping for — yourself, a gift, or a piece you've had your eye on?");
+    }
+    setTimeout(function(){ chatInput.focus(); }, 80);
+  }
+}
+function openChat(prefill){
+  toggleChat(true);
+  if(prefill){ setTimeout(function(){ sendUser(prefill); }, 350); }
+}
+function askAbout(name){ openChat('Tell me about ' + name); }
+
+function addMsg(text, who){
+  var d = document.createElement('div');
+  d.className = 'msg ' + who;
+  d.textContent = text;
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  return d;
+}
+function botSay(text){
+  typingEl.classList.add('show');
+  chatBody.scrollTop = chatBody.scrollHeight;
+  var delay = 650 + Math.min(text.length * 4, 650);
+  setTimeout(function(){
+    typingEl.classList.remove('show');
+    addMsg(text, 'bot');
+  }, delay);
+}
+function sendUser(text){
+  var t = (text || '').trim();
+  if(!t) return;
+  addMsg(t, 'user');
+  chatInput.value = '';
+  botSay(answer(t));
+}
+
+document.getElementById('chatForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  sendUser(chatInput.value);
+});
+document.getElementById('chatChips').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-q]');
+  if(b) sendUser(b.getAttribute('data-q'));
+});
+
+function findProduct(q){
+  for(var i=0;i<PRODUCTS.length;i++){
+    if(q.indexOf(PRODUCTS[i].name.toLowerCase()) !== -1) return PRODUCTS[i];
+  }
+  if(q.indexOf('initial')!==-1 || q.indexOf('letter')!==-1) return PRODUCTS[0];
+  if(q.indexOf('gemstone')!==-1 || q.indexOf('agate')!==-1) return PRODUCTS[1];
+  if(q.indexOf('carissa')!==-1) return PRODUCTS[2];
+  if(q.indexOf('eclipse')!==-1 || q.indexOf('hoop')!==-1) return PRODUCTS[3];
+  if(q.indexOf('dome')!==-1) return PRODUCTS[4];
+  if(q.indexOf('sparrow')!==-1 || q.indexOf('necklace')!==-1) return PRODUCTS[5];
+  return null;
+}
+
+function answer(raw){
+  var q = ' ' + raw.toLowerCase().replace(/[^a-z0-9 ]/g,' ') + ' ';
+  var p = findProduct(q);
+  if(p){
+    if(p.name === "Lil Sparrow Necklace"){
+      return p.name + " — " + p.desc + "\n\nDemo price: " + p.price + " · Handmade in Columbus, OH.\n\nIt's sold out on the live shop right now, so I'd suggest a restock alert or a similar piece — the Carissa Dome Ring has the same luminous feel. Want me to suggest an alternative?";
+    }
+    return p.name + " — " + p.desc + "\n\nDetails: " + p.notes + "\nDemo price: " + p.price + " · Handmade in Columbus, OH.\n\nWant help with sizing for this piece (" + p.mood + "), or is it a gift?";
+  }
+  if(/\b(hi|hello|hey|morning|afternoon)\b/.test(q)) return "Hello, and welcome to VASI Jewelry. ✦ Tell me what you're after — a ring, hoops, or a necklace — and I'll help with sizing, materials, or timing. Shopping for yourself or a gift?";
+  if(q.indexOf('size')!==-1 || q.indexOf('sizing')!==-1 || q.indexOf('fit')!==-1 || q.indexOf('measure')!==-1){
+    return "Ring sizing, made simple: 💍\n\n• Measure the finger you'll wear it on, at the end of the day when fingers are warmest\n• Between sizes? Most people size up — especially for wider dome bands like Carissa\n• Rings fit differently across the hand, so measure the exact finger\n\nA printable size guide and exchange details are placeholders in this demo for the shop to confirm. Which piece are you sizing for?";
+  }
+  if(q.indexOf('material')!==-1 || q.indexOf('gold')!==-1 || q.indexOf('silver')!==-1 || q.indexOf('metal')!==-1){
+    return "VASI works in two metals: ✦\n\n• 18k gold — warm, rich, made for daily wear\n• Sterling silver — bright, classic, and versatile\n\nIrregular gemstone pieces use natural stones, so each one varies slightly — that's the point, not a flaw. Which piece's metal are you deciding on?";
+  }
+  if(q.indexOf('made to order')!==-1 || q.indexOf('made-to-order')!==-1 || q.indexOf('how long')!==-1 || q.indexOf('timing')!==-1 || q.indexOf('take')!==-1 || q.indexOf('when')!==-1){
+    return "Many VASI pieces are made to order — finished for you when you order, not pulled from a shelf. ⏳\n\nExact timing varies by piece and is a placeholder in this concept demo, to be confirmed by the shop before launch. On the live version I'd give you the exact window for the piece you pick.\n\nWhich piece are you considering? I can tell you about it while you're here.";
+  }
+  if(q.indexOf('ship')!==-1 || q.indexOf('deliver')!==-1 || q.indexOf('free shipping')!==-1 || q.indexOf('pickup')!==-1 || q.indexOf('pick up')!==-1){
+    return "Good news: VASI offers free US shipping on orders over $50. 📦\n\nOther shipping options and delivery times are placeholders in this concept demo, to be confirmed by the shop before launch. On the live version I'd confirm your ZIP and give you exact options here. Want help picking a piece while you're here?";
+  }
+  if(q.indexOf('price')!==-1 || q.indexOf('cost')!==-1 || q.indexOf('how much')!==-1){
+    return "Demo pricing in this concept (from the live shop's listings):\n• Initial Letter Rings: $32.99\n• Irregular Gemstone Ring: $52.00\n• Carissa Dome Ring: $52.00\n• Eclipse Hoops: $42.00\n• Irregular Stone Dome Ring: $53.00\n• Lil Sparrow Necklace: $530.00 (sold out)\n\nHeads up: these are placeholder demo prices for the shop to confirm, and there's no live checkout in this concept. Want me to match a piece to your budget or occasion?";
+  }
+  if(q.indexOf('return')!==-1 || q.indexOf('exchange')!==-1 || q.indexOf('refund')!==-1){
+    return "Return and exchange details are placeholders in this concept demo, to be confirmed by VASI Jewelry before launch. 🔄\n\nOn the live version I'd walk you through the shop's current policy for the piece you bought. Is there a sizing or fit worry behind the question? I can help with that right now.";
+  }
+  if(q.indexOf('sold out')!==-1 || q.indexOf('restock')!==-1 || q.indexOf('available')!==-1 || q.indexOf('availability')!==-1){
+    return "The Lil Sparrow Necklace ($530.00) is sold out on the live shop — it's shown in this demo so shoppers can ask about restocks. 💍\n\nEverything else in the best-seller lineup is shown as available here, but final availability is confirmed by the shop. Want a similar-piece suggestion?";
+  }
+  if(q.indexOf('gift')!==-1){
+    return "Love it — jewelry makes a lasting gift, and VASI's personal pieces are made for it. 🎁\n\nSafe bets:\n• Initial Letter Rings ($32.99) — personal, everyday, the best seller\n• Eclipse Hoops ($42.00) — sleek and versatile\n• Carissa Dome Ring ($52.00) — luminous, classic, hard to get wrong\n\nWho's it for — and do they wear gold or silver more? I'll narrow it to one.";
+  }
+  if(q.indexOf('ring')!==-1){
+    return "The ring lineup: 💍\n\n• Initial Letter Rings — $32.99, your letter, your metal\n• Irregular Gemstone Ring — $52.00, chunky crimson agate in 18k gold\n• Carissa Dome Ring — $52.00, smooth dome that catches the light\n• Irregular Stone Dome Ring — $53.00, organic stone in a dome setting\n\nWant sizing help for one, or are you choosing between two?";
+  }
+  if(q.indexOf('hoop')!==-1 || q.indexOf('earring')!==-1){
+    return "Eclipse Hoops — $42.00. Sleek hoops for every day: light enough to forget, polished enough to notice. ✦\n\nWant to know about the metal options, or compare them with a ring for a set?";
+  }
+  if(q.indexOf('necklace')!==-1){
+    return "The Lil Sparrow Necklace ($530.00) is the necklace in this demo lineup — and it's currently sold out on the live shop. 💍\n\nIt's shown here so shoppers can ask about restocks. Want a similar-piece suggestion, or help with a ring instead?";
+  }
+  if(q.indexOf('columbus')!==-1 || q.indexOf('where')!==-1 || q.indexOf('owner')!==-1 || q.indexOf('founder')!==-1 || q.indexOf('story')!==-1){
+    return "VASI Jewelry is a handmade luxury shop based in Columbus, Ohio. ✦ Every piece is made there — 18k gold and sterling silver rings, hoops, and necklaces, meant to be seen, worn, and loved.\n\nThe owner's name isn't public, but the work speaks for itself. Want help with a piece while you're here?";
+  }
+  if(q.indexOf('order')!==-1 || q.indexOf('buy')!==-1 || q.indexOf('checkout')!==-1 || q.indexOf('cart')!==-1){
+    return "Quick heads-up: this is an Apex AI concept demo, so there's no live checkout here — I'm showing how ordering questions would be handled on the real store. 🛍️\n\nWant me to help you choose the piece first so you know exactly what to order?";
+  }
+  if(q.indexOf('contact')!==-1 || q.indexOf('email')!==-1 || q.indexOf('human')!==-1 || q.indexOf('phone')!==-1){
+    return "You can reach the shop through vasijewelry.com — and in this demo, I'm your fastest answer for sizing, materials, and timing. 📧\n\nOr keep chatting — what's on your mind?";
+  }
+  if(q.indexOf('thank')!==-1) return "You're so welcome! ✦ If you want, tell me the person or the occasion and I'll leave you with one perfect piece.";
+  if(q.indexOf('apex')!==-1 || q.indexOf('demo')!==-1 || q.indexOf('chatbot')!==-1 || q.indexOf('ai')!==-1){
+    return "This assistant is the Apex AI demo piece — it shows how VASI's site could answer shopper questions instantly, 24/7, while the workshop is busy. On a live build it would connect to real inventory, sizing, and order details.\n\nWant to keep testing me? Ask about a ring size, a material, or timing.";
+  }
+  if(q.indexOf('recommend')!==-1 || q.indexOf('best')!==-1 || q.indexOf('which')!==-1){
+    return "If you're not sure where to start: ✦\n\n• First VASI piece → Initial Letter Rings ($32.99), personal and everyday\n• A statement → Irregular Gemstone Ring ($52.00), one of a kind\n• Classic luxury → Carissa Dome Ring ($52.00)\n• Everyday polish → Eclipse Hoops ($42.00)\n\nWhich of those sounds like you?";
+  }
+  return "I can help with that — let me point you the right way. ✦\n\nI know the lineup best by piece:\n• Rings → Initial Letter, Irregular Gemstone, Carissa Dome, Irregular Stone Dome\n• Hoops → Eclipse Hoops\n• Necklaces → Lil Sparrow (sold out)\n\nOr ask me about ring sizing, materials, made-to-order timing, or shipping. Which sounds like you?";
+}
+</script>
+</body>
+</html>

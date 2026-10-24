@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Wicked Obscura — Concept Demo by Apex AI</title>
+<meta name="description" content="Concept demo of Wicked Obscura — mystical ritual soy candles topped with crystals, herbs, and botanicals, made in Covington, KY. With an Apex AI assistant baked in." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F2F8; --bg-2:#EFE6F0; --surface:#FFFFFF; --surface-2:#FBF7FC;
+    --ink:#241627; --ink-2:#4E3A52; --muted:#7C6A80; --line:#E3D6E6; --line-strong:#C9AECF;
+    --plum:#4B2A5A; --plum-bright:#6B3E80; --plum-soft:#EADDF0;
+    --gold:#9A7B2E; --gold-soft:#F3EAD0;
+    --banner-bg:#1C1021; --banner-ink:#F3E8F7; --chat-bg:#FFFFFF;
+    --shadow:0 18px 44px rgba(44,18,66,.16); --shadow-sm:0 6px 20px rgba(44,18,66,.10);
+    --radius:18px; --radius-lg:26px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#170F1C; --bg-2:#1E1426; --surface:#251A2E; --surface-2:#2A1E35;
+      --ink:#F4EAF8; --ink-2:#D3BFE0; --muted:#B39CC0; --line:#3A2747; --line-strong:#57406A;
+      --plum:#C79BE0; --plum-bright:#D9B4EC; --plum-soft:#33203F;
+      --gold:#D9BC6A; --gold-soft:#33291A;
+      --banner-bg:#0D0712; --banner-ink:#F3E8F7; --chat-bg:#251A2E;
+      --shadow:0 18px 44px rgba(0,0,0,.45); --shadow-sm:0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  .serif{font-family:"Cormorant Garamond",Georgia,serif}
+  .demo-banner{background:var(--banner-bg);color:var(--banner-ink);font-size:.82rem;padding:.6rem 1rem;text-align:center;line-height:1.45}
+  .demo-banner strong{letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;background:#6B3E80;color:#fff;padding:.18rem .5rem;border-radius:999px;margin-right:.5rem;vertical-align:1px;white-space:nowrap}
+  .demo-banner a{color:#E8C96A;text-decoration:underline;text-underline-offset:2px}
+  .site-header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .header-inner{max-width:1180px;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+  .mark{width:38px;height:38px;border-radius:10px;background:var(--plum);display:grid;place-items:center;flex:none;font-size:1.2rem}
+  .brand-name{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.45rem;line-height:1}
+  .brand-sub{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:.15rem;display:block}
+  nav.main-nav{display:flex;gap:1.35rem;align-items:center;font-size:.92rem;font-weight:600}
+  nav.main-nav a{text-decoration:none;color:var(--ink-2)}
+  nav.main-nav a:hover{color:var(--plum)}
+  @media(max-width:720px){ nav.main-nav{display:none} }
+  .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.68rem 1.15rem;font-weight:700;font-size:.92rem;text-decoration:none;border:1px solid transparent;transition:transform .15s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--ink);color:var(--bg)}
+  .btn-primary:hover{background:var(--plum)}
+  .btn-plum{background:var(--plum);color:#fff}
+  .btn-plum:hover{background:var(--plum-bright)}
+  .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--plum);color:var(--plum)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+  .hero{padding:3.2rem 0 2.6rem}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:2.5rem;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--plum);background:var(--plum-soft);padding:.42rem .75rem;border-radius:999px}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(2.9rem,6vw,4.6rem);line-height:.98;font-weight:600;margin:1rem 0 .9rem;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--plum)}
+  .hero p.lede{font-size:1.13rem;color:var(--ink-2);max-width:34rem;margin:0 0 1.5rem}
+  .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.7rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+  .hero-meta div strong{display:block;font-family:"Cormorant Garamond",serif;font-size:1.35rem;line-height:1}
+  .hero-meta div span{font-size:.8rem;color:var(--muted);font-weight:600}
+  .hero-panel{position:relative;border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;background:linear-gradient(140deg,#2A1535,#4B2A5A 55%,#7A4B8F);min-height:440px;display:grid;place-items:center;text-align:center;padding:2rem;color:#F7ECFF}
+  .hero-panel .big{font-size:5rem;line-height:1}
+  .hero-panel p{max-width:22rem;margin:1rem auto 0;color:#E4D2F0}
+  .hero-card{position:absolute;left:1rem;bottom:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);padding:.9rem 1rem;max-width:290px;text-align:left}
+  .hero-card p{margin:.15rem 0 0;font-size:.86rem;color:var(--ink-2)}
+  .hero-card strong{font-size:.86rem}
+  .hero-card button{margin-top:.55rem;background:none;border:none;padding:0;color:var(--plum);font-weight:800;font-size:.86rem}
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .trust-inner{max-width:1180px;margin:0 auto;padding:.95rem 1.25rem;display:flex;gap:2rem;flex-wrap:wrap;justify-content:space-between;font-size:.86rem;font-weight:700;color:var(--ink-2)}
+  .trust-inner span{display:inline-flex;gap:.45rem;align-items:center}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--plum);flex:none}
+  section.block{padding:3.6rem 0}
+  .section-head{max-width:640px;margin-bottom:2rem}
+  .section-head h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4vw,2.9rem);line-height:1.05;margin:.55rem 0 .6rem;font-weight:600}
+  .section-head p{color:var(--ink-2);margin:0;font-size:1.02rem}
+  .kicker{font-size:.74rem;letter-spacing:.17em;text-transform:uppercase;font-weight:800;color:var(--plum)}
+  .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  @media(max-width:960px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.product-grid{grid-template-columns:1fr}}
+  .product{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column;gap:.55rem}
+  .product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem}
+  .vessel{width:52px;height:64px;border-radius:9px 9px 13px 13px;position:relative;flex:none;border:1px solid rgba(0,0,0,.12);overflow:hidden}
+  .vessel::before{content:"";position:absolute;left:50%;top:12px;transform:translateX(-50%);width:26px;height:4px;border-radius:99px;background:rgba(255,255,255,.55)}
+  .vessel::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70%;background:rgba(255,244,214,.92)}
+  .v-plum{background:#4B2A5A}.v-ghost{background:#E8E0EC}.v-rose{background:#7A2E4D}.v-gold{background:#9A7B2E}.v-sun{background:#C88A2A}.v-night{background:#241627}
+  .badge{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .55rem;border-radius:999px;background:var(--plum-soft);color:var(--plum);white-space:nowrap}
+  .badge.hot{background:var(--gold-soft);color:var(--gold)}
+  .product h3{font-family:"Cormorant Garamond",serif;font-size:1.5rem;line-height:1.05;margin:.2rem 0 0;font-weight:700}
+  .notes{font-size:.9rem;color:var(--ink-2);margin:0}
+  .product-meta{display:flex;gap:1rem;font-size:.8rem;color:var(--muted);font-weight:700;margin-top:.15rem}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.8rem;border-top:1px dashed var(--line)}
+  .price{font-weight:800;font-size:1.05rem}
+  .price small{font-weight:600;color:var(--muted);font-size:.75rem;display:block}
+  .ask-btn{background:var(--surface-2);border:1px solid var(--line-strong);color:var(--ink);border-radius:999px;padding:.5rem .8rem;font-weight:700;font-size:.84rem}
+  .ask-btn:hover{border-color:var(--plum);color:var(--plum)}
+  .demo-note{font-size:.82rem;color:var(--muted);margin-top:1rem}
+  .craft-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;align-items:center}
+  @media(max-width:880px){.craft-grid{grid-template-columns:1fr}}
+  .craft-panel{border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);min-height:380px;background:linear-gradient(150deg,#1C1021,#4B2A5A 60%,#8A5AA6);display:grid;place-items:center;color:#F7ECFF;text-align:center;padding:2rem}
+  .craft-panel .big{font-size:4rem;line-height:1}
+  .steps{display:grid;gap:1rem;margin-top:1.4rem}
+  .step{display:flex;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem}
+  .step-num{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;flex:none;font-size:.9rem}
+  .step h3{margin:.15rem 0 .2rem;font-size:1rem}
+  .step p{margin:0;font-size:.92rem;color:var(--ink-2)}
+  .custom{background:var(--ink);color:#F7ECFF;border-radius:var(--radius-lg);overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr}
+  @media(max-width:880px){.custom{grid-template-columns:1fr}}
+  .custom-copy{padding:2.2rem}
+  .custom-copy h2{font-family:"Cormorant Garamond",serif;font-size:2.4rem;line-height:1.05;margin:.5rem 0 .7rem;font-weight:600;color:#fff}
+  .custom-copy p{color:#D9C6E8;margin:0 0 1.1rem}
+  .custom-list{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;gap:.6rem;font-size:.95rem}
+  .custom-list li{display:flex;gap:.6rem;align-items:flex-start}
+  .custom-list li::before{content:"✦";color:#E8C96A;flex:none}
+  .custom-panel{min-height:320px;background:linear-gradient(140deg,#6B3E80,#2A1535);display:grid;place-items:center;color:#F7ECFF;text-align:center;padding:2rem}
+  .custom-panel .big{font-size:4rem;line-height:1}
+  .btn-light{background:#F7ECFF;color:#241627}
+  .btn-light:hover{background:#fff}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem}
+  @media(max-width:880px){.split{grid-template-columns:1fr}}
+  .story-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.8rem}
+  .story-card h2{font-family:"Cormorant Garamond",serif;font-size:2.1rem;margin:.4rem 0 .6rem;line-height:1.05}
+  .story-card p{color:var(--ink-2);margin:0 0 .9rem}
+  .signature{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.4rem;color:var(--plum)}
+  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem}
+  details.faq + details.faq{margin-top:.7rem}
+  details.faq summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";color:var(--plum);font-size:1.2rem;line-height:1}
+  details.faq[open ] summary::after{content:"–"}
+  details.faq p{margin:.6rem 0 0;color:var(--ink-2);font-size:.94rem}
+  .ai-callout{background:var(--plum-soft);border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:2rem;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+  @media(max-width:880px){.ai-callout{grid-template-columns:1fr}}
+  .ai-callout h2{font-family:"Cormorant Garamond",serif;font-size:2.3rem;line-height:1.05;margin:.4rem 0 .6rem}
+  .ai-callout p{margin:0;color:var(--ink-2)}
+  .try-chips{display:flex;flex-wrap:wrap;gap:.55rem}
+  .try-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.6rem .9rem;font-weight:700;font-size:.88rem;text-align:left}
+  .try-chips button:hover{border-color:var(--plum);color:var(--plum)}
+  footer{border-top:1px solid var(--line);padding:2.2rem 0 6.5rem;background:var(--bg-2)}
+  .footer-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+  footer p{color:var(--muted);font-size:.88rem;max-width:38rem}
+  footer a{color:var(--plum);font-weight:700}
+  .chat-fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;background:var(--ink);color:var(--bg);border:none;border-radius:999px;padding:.85rem 1.15rem;display:flex;align-items:center;gap:.6rem;font-weight:800;box-shadow:var(--shadow);font-size:.94rem}
+  .chat-fab .pulse{width:9px;height:9px;border-radius:50%;background:#7BC47F;box-shadow:0 0 0 4px rgba(123,196,127,.25)}
+  .chat-panel{position:fixed;right:1.1rem;bottom:5.2rem;z-index:61;width:min(400px,calc(100vw - 1.4rem));height:min(600px,calc(100dvh - 7rem));background:var(--chat-bg);border:1px solid var(--line-strong);border-radius:22px;box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}
+  .chat-panel.open{display:flex}
+  @media(max-width:560px){.chat-panel{right:.7rem;bottom:5rem}}
+  .chat-head{background:var(--ink);color:#F7ECFF;padding:1rem 1.1rem;display:flex;gap:.8rem;align-items:center}
+  .chat-avatar{width:40px;height:40px;border-radius:50%;background:#6B3E80;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.2rem;color:#fff;flex:none}
+  .chat-head strong{display:block;line-height:1.1;font-size:.98rem}
+  .chat-head span{font-size:.78rem;color:#D3BFE0}
+  .chat-head button{margin-left:auto;background:rgba(255,255,255,.12);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1}
+  .chat-body{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;background:var(--surface-2)}
+  .msg{max-width:86%;padding:.7rem .85rem;border-radius:16px;font-size:.92rem;line-height:1.5;white-space:pre-wrap}
+  .msg.bot{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+  .msg.user{background:var(--ink);color:var(--bg);border-bottom-right-radius:5px;align-self:flex-end}
+  .typing{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px;padding:.7rem .9rem;display:none;gap:.3rem}
+  .typing.show{display:flex}
+  .typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+  @keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+  @media (prefers-reduced-motion: reduce){.typing i{animation:none} html{scroll-behavior:auto}}
+  .chat-chips{padding:.65rem .8rem 0;display:flex;gap:.45rem;flex-wrap:wrap;background:var(--surface-2)}
+  .chat-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.42rem .65rem;font-size:.78rem;font-weight:700}
+  .chat-chips button:hover{border-color:var(--plum);color:var(--plum)}
+  .chat-form{display:flex;gap:.5rem;padding:.8rem;border-top:1px solid var(--line);background:var(--chat-bg)}
+  .chat-form input{flex:1;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:.7rem .95rem;font:inherit;font-size:.92rem;min-width:0}
+  .chat-form input:focus{outline:2px solid var(--plum);outline-offset:1px}
+  .chat-form button[type=submit]{background:var(--plum);color:#fff;border:none;border-radius:999px;padding:.7rem 1rem;font-weight:800}
+  .chat-foot{font-size:.7rem;color:var(--muted);text-align:center;padding:0 .8rem .7rem;background:var(--chat-bg)}
+</style>
+</head>
+<body>
+
+<div class="demo-banner"><strong>Apex AI · Concept Demo</strong> This is a concept preview built for Wicked Obscura — not their live store. Product details &amp; prices are placeholders for the shop to confirm. <a href="#ai-assistant">Try the AI assistant ↓</a></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="Wicked Obscura home">
+      <span class="mark" aria-hidden="true">🌙</span>
+      <span><span class="brand-name">Wicked Obscura</span><span class="brand-sub">Covington, KY · Ritual Candles &amp; Apothecary</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#ritual">Rituals</a>
+      <a href="#tarot">Tarot Collection</a>
+      <a href="#story">Our Story</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn-plum" type="button" onclick="openChat()">🌙 Ask the Assistant</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Mystical candles &amp; apothecary · Covington, KY</span>
+        <h1>Light the season.<br />Set <em>your intention.</em></h1>
+        <p class="lede">Ritual soy candles topped with crystals, herbs, and botanicals — each one poured around a tarot archetype, a scent, and a stone. Light one, breathe, and let the ritual do its work.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#shop">Shop the collection</a>
+          <button class="btn btn-ghost" type="button" onclick="openChat('What candle should I pick for letting go of something?')">Find my ritual →</button>
+        </div>
+        <div class="hero-meta">
+          <div><strong>Ritual Soy</strong><span>Crystal &amp; herb topped</span></div>
+          <div><strong>Tarot Series</strong><span>One card, one candle</span></div>
+          <div><strong>Witchy Nook</strong><span>Pins, mugs &amp; apparel</span></div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div>
+          <div class="big">🕯️✦🌙</div>
+          <p>Every candle is topped by hand — crystals, dried flowers, and botanicals chosen for the intention inside.</p>
+        </div>
+        <div class="hero-card">
+          <strong>Death Tarot — Vetiver &amp; Cedar</strong>
+          <p>Transformation, release &amp; rebirth. Topped with dried statice &amp; iolite.</p>
+          <button type="button" onclick="openChat('Tell me about Death Tarot')">Ask about this →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust"><div class="trust-inner">
+    <span><span class="dot"></span> Ritual soy candles, poured in small batches</span>
+    <span><span class="dot"></span> Topped with crystals, herbs &amp; botanicals</span>
+    <span><span class="dot"></span> Tarot, apothecary &amp; Witchy Nook goods</span>
+  </div></div>
+
+  <section class="block" id="shop">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Shop the collection</span>
+        <h2>Scents <em class="serif" style="color:var(--plum)">with intention</em></h2>
+        <p>Each candle pairs a fragrance with a crystal and a purpose. Ask Nyx about any of them — scent notes, crystal meanings, or which ritual fits your moment.</p>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="demo-note">* Demo prices shown from the shop's live listings at time of concept; final prices, sizes, and crystal toppings are placeholders for Wicked Obscura to confirm. The Sun candle's crystal topping is a placeholder — the shop should confirm it.</p>
+    </div>
+  </section>
+
+  <section class="block" id="ritual" style="padding-top:0">
+    <div class="wrap">
+      <div class="craft-grid">
+        <div class="craft-panel"><div><div class="big">✦</div><p style="color:#E4D2F0">From first light to final flicker — a ritual in three small steps.</p></div></div>
+        <div>
+          <span class="kicker">How a ritual candle works</span>
+          <h2 class="serif" style="font-size:2.4rem;line-height:1.05;margin:.5rem 0 .6rem">Set it. Light it. Let it go.</h2>
+          <p style="color:var(--ink-2)">A Wicked Obscura candle is a tool, not just a scent. The fragrance sets the mood, the crystal holds the intention, and the flame marks the moment.</p>
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><div><h3>Choose your intention</h3><p>Release, focus, love, clarity — or simply a quiet room. Nyx can match a candle to it.</p></div></div>
+            <div class="step"><span class="step-num">2</span><div><h3>Light with purpose</h3><p>Trim the wick, take a breath, and name what you're calling in or letting go of.</p></div></div>
+            <div class="step"><span class="step-num">3</span><div><h3>Keep the crystal</h3><p>When the wax is gone, the crystal topping remains — a keepsake of the ritual.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="tarot" style="padding-top:0">
+    <div class="wrap">
+      <div class="custom">
+        <div class="custom-copy">
+          <span class="kicker" style="color:#E8C96A">Tarot Candle Collection</span>
+          <h2>One card. One candle. One ritual.</h2>
+          <p>The Tarot Collection pairs each archetype with a scent and a stone — Death for release, The Magician for focus, The Lovers for union, The Sun for radiance.</p>
+          <ul class="custom-list">
+            <li>Death — vetiver &amp; cedar, iolite &amp; dried statice</li>
+            <li>The Magician — black rose &amp; amber, amethyst &amp; blue lotus</li>
+            <li>The Lovers — rose &amp; sandalwood, rose quartz &amp; gomphrena</li>
+            <li>The Sun — citrus &amp; neroli, bright and uplifting</li>
+          </ul>
+          <button class="btn btn-light" type="button" onclick="openChat('Which tarot candle is right for me?')">Ask Nyx which card is yours →</button>
+        </div>
+        <div class="custom-panel"><div><div class="big">🃏🌙</div><p>Draw a card. Light its candle.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="story" style="padding-top:0">
+    <div class="wrap">
+      <div class="split">
+        <div class="story-card">
+          <span class="kicker">Our story</span>
+          <h2>Made for the mystical, the curious &amp; the in-between</h2>
+          <p>Wicked Obscura is a mystical candle &amp; apothecary shop in Covington, Kentucky, run by founder Kayla Spelling. Every candle is poured with intention — fragrance, crystal, and botanical chosen to match the ritual it serves.</p>
+          <p>Beyond candles, the Witchy Nook carries pins, mugs, hoodies, and other goods for the spooky-at-heart — small, intentional pieces for everyday magic.</p>
+          <p class="signature">— Kayla, Wicked Obscura</p>
+          <p class="demo-note">Founder and shop details are placeholders for the shop to confirm.</p>
+        </div>
+        <div id="faq">
+          <span class="kicker">Good to know</span>
+          <h2 class="serif" style="font-size:2.1rem;margin:.4rem 0 1rem;line-height:1.05">Questions, answered</h2>
+          <details class="faq"><summary>What do the crystals on top mean?</summary><p>Each crystal is chosen for the candle's intention: iolite for vision and trust in the unknown, rainbow moonstone for balance and intuition, amethyst for clarity and spiritual connection, rose quartz for love and harmony. Ask Nyx about any candle's stone.</p></details>
+          <details class="faq"><summary>Do you have unscented options?</summary><p>Yes — Ghost is an unscented soy candle topped with rainbow moonstone, made for meditation, rituals, and scent-sensitive spaces where clarity and stillness matter more than fragrance.</p></details>
+          <details class="faq"><summary>How do shipping and delivery work?</summary><p>Shipping options and delivery times are placeholders in this concept demo, to be confirmed by Wicked Obscura before launch. On the live version, Nyx would confirm your ZIP and give exact options here.</p></details>
+          <details class="faq"><summary>Can I burn a ritual candle like a normal candle?</summary><p>Yes — with the usual care: trim the wick, burn on a heat-safe surface, keep it away from drafts, and never leave it unattended. Keep crystal and botanical toppings away from the flame as the wax melts.</p></details>
+          <details class="faq"><summary>What else do you sell besides candles?</summary><p>The Witchy Nook: enamel pins (like the Ghost Hunter Club pin), tarot mugs, hoodies, phone cases, and puzzles — many made to order. Ask Nyx about any of them.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ai-assistant" style="padding-top:0">
+    <div class="wrap">
+      <div class="ai-callout">
+        <div>
+          <span class="kicker">Meet Nyx</span>
+          <h2>Answers while Kayla's in the workshop</h2>
+          <p>Ask Nyx, the shop assistant — about scent notes, crystal meanings, rituals, or gifts. It answers instantly, even after hours.</p>
+        </div>
+        <div class="try-chips">
+          <button type="button" onclick="openChat('What candle should I pick for letting go of something?')">🌑 Candle for letting go?</button>
+          <button type="button" onclick="openChat('What does iolite mean?')">💎 What does iolite mean?</button>
+          <button type="button" onclick="openChat('Do you have anything unscented?')">🕯️ Anything unscented?</button>
+          <button type="button" onclick="openChat('I need a gift — what do you recommend?')">🎁 Help me pick a gift</button>
+          <button type="button" onclick="openChat('How much do candles cost and do you ship?')">📦 Prices &amp; shipping?</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <strong class="serif" style="font-size:1.4rem">Wicked Obscura</strong>
+      <p>Mystical candles &amp; apothecary · Covington, KY. This is an Apex AI concept demo — not the shop's live store. Product details, prices, and shipping are placeholders for the shop to confirm.</p>
+    </div>
+    <p>Built as a concept by <a href="https://getapexai.dev">Apex AI</a> · Chat assistant Nyx answers instantly, 24/7.</p>
+  </div>
+</footer>
+
+<button class="chat-fab" id="chatFab" type="button" onclick="toggleChat()" aria-expanded="false"><span class="pulse" aria-hidden="true"></span> Ask Nyx · AI Assistant</button>
+<div class="chat-panel" id="chatPanel" aria-hidden="true">
+  <div class="chat-head">
+    <span class="chat-avatar">N</span>
+    <div><strong>Nyx — Wicked Obscura Assistant</strong><span>Powered by Apex AI · Demo · Replies instantly</span></div>
+    <button type="button" onclick="toggleChat(false)" aria-label="Close chat">×</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="typing" id="typing"><i></i><i></i><i></i></div>
+  <div class="chat-chips" id="chatChips">
+    <button type="button" data-q="What candle should I pick for letting go of something?">Letting go</button>
+    <button type="button" data-q="What does iolite mean?">Crystal meanings</button>
+    <button type="button" data-q="Do you have anything unscented?">Unscented</button>
+    <button type="button" data-q="How much do candles cost and do you ship?">Prices &amp; shipping</button>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" placeholder="Ask about scents, crystals, rituals…" autocomplete="off" />
+    <button type="submit">Send</button>
+  </form>
+  <div class="chat-foot">Apex AI concept demo — no live checkout here.</div>
+</div>
+
+<script>
+var PRODUCTS = [
+  { name:"Death Tarot", vessel:"v-plum", badge:"Bestseller", badgeClass:"hot", notes:"Vetiver & cedar · dried statice · iolite", mood:"grounding, transformative, release", price:"from $3.50", desc:"Smoky and woodsy — transformation, release, and rebirth. The Death card is not an ending, but a sacred space for healing." },
+  { name:"Ghost Unscented", vessel:"v-ghost", badge:"Unscented", badgeClass:"", notes:"Unscented soy · rainbow moonstone", mood:"calm, clear, meditative", price:"from $20.00", desc:"Pure flame without fragrance — for meditation, spiritual practice, and scent-sensitive spaces." },
+  { name:"The Magician", vessel:"v-night", badge:"Focus", badgeClass:"", notes:"Black rose & amber · amethyst · blue lotus", mood:"empowering, focused, mystical", price:"from $3.50", desc:"Darkly floral with warm, resinous undertones — for spellwork, intention setting, and manifestation." },
+  { name:"The Lovers", vessel:"v-rose", badge:"Love", badgeClass:"", notes:"Rose & sandalwood · rose quartz · gomphrena", mood:"warm, romantic, harmonious", price:"from $3.50", desc:"Warm, floral, and sensual — for love spells, relationship rituals, and self-love practice." },
+  { name:"The Sun", vessel:"v-sun", badge:"Radiant", badgeClass:"hot", notes:"Citrus & neroli · bright and uplifting", mood:"bright, optimistic, energizing", price:"from $3.50", desc:"Radiance in every flame — citrus and neroli for energy, optimism, and light. Crystal topping to be confirmed by the shop." },
+  { name:"Ghost Hunter Club Pin", vessel:"v-gold", badge:"Witchy Nook", badgeClass:"", notes:"Enamel pin · nickel-sized · ghost design", mood:"playful, spooky, collectible", price:"$3.50", desc:"A tiny badge of honor for paranormal fans and ghost lovers — for bags, jackets, or hats." }
+];
+
+function renderProducts(){
+  var grid = document.getElementById('productGrid');
+  var html = '';
+  PRODUCTS.forEach(function(p){
+    html += '<article class="product">'
+      + '<div class="product-top"><span class="vessel ' + p.vessel + '" aria-hidden="true"></span><span class="badge ' + p.badgeClass + '">' + p.badge + '</span></div>'
+      + '<h3>' + p.name + '</h3>'
+      + '<p class="notes">' + p.notes + '</p>'
+      + '<p class="notes" style="color:var(--muted)">' + p.desc + '</p>'
+      + '<div class="product-meta"><span>🕯️ Ritual soy</span><span>Crystal topped</span></div>'
+      + '<div class="price-row"><span class="price">' + p.price + '<small>demo price*</small></span>'
+      + '<button class="ask-btn" type="button" onclick="askAbout(\'' + p.name.replace(/'/g,"\\'") + '\')">Ask about this →</button></div>'
+      + '</article>';
+  });
+  grid.innerHTML = html;
+}
+renderProducts();
+
+/* ---------- Chat ---------- */
+var chatPanel = document.getElementById('chatPanel');
+var chatBody = document.getElementById('chatBody');
+var chatInput = document.getElementById('chatInput');
+var chatFab = document.getElementById('chatFab');
+var typingEl = document.getElementById('typing');
+var greeted = false;
+
+function toggleChat(force){
+  var open = typeof force === 'boolean' ? force : !chatPanel.classList.contains('open');
+  chatPanel.classList.toggle('open', open);
+  chatPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  chatFab.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(open){
+    if(!greeted){
+      greeted = true;
+      botSay("Hi, I'm Nyx — the Wicked Obscura assistant (Apex AI demo). 🌙\n\nI can help you pick a ritual candle, explain a crystal, or find a gift for the spooky-at-heart. What are you drawn to — release, focus, love, or light?");
+    }
+    setTimeout(function(){ chatInput.focus(); }, 80);
+  }
+}
+function openChat(prefill){
+  toggleChat(true);
+  if(prefill){ setTimeout(function(){ sendUser(prefill); }, 350); }
+}
+function askAbout(name){ openChat('Tell me about ' + name); }
+
+function addMsg(text, who){
+  var d = document.createElement('div');
+  d.className = 'msg ' + who;
+  d.textContent = text;
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  return d;
+}
+function botSay(text){
+  typingEl.classList.add('show');
+  chatBody.scrollTop = chatBody.scrollHeight;
+  var delay = 650 + Math.min(text.length * 4, 650);
+  setTimeout(function(){
+    typingEl.classList.remove('show');
+    addMsg(text, 'bot');
+  }, delay);
+}
+function sendUser(text){
+  var t = (text || '').trim();
+  if(!t) return;
+  addMsg(t, 'user');
+  chatInput.value = '';
+  botSay(answer(t));
+}
+
+document.getElementById('chatForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  sendUser(chatInput.value);
+});
+document.getElementById('chatChips').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-q]');
+  if(b) sendUser(b.getAttribute('data-q'));
+});
+
+function findProduct(q){
+  for(var i=0;i<PRODUCTS.length;i++){
+    if(q.indexOf(PRODUCTS[i].name.toLowerCase()) !== -1) return PRODUCTS[i];
+  }
+  if(q.indexOf('death')!==-1) return PRODUCTS[0];
+  if(q.indexOf('ghost')!==-1 && q.indexOf('pin')===-1) return PRODUCTS[1];
+  if(q.indexOf('magician')!==-1) return PRODUCTS[2];
+  if(q.indexOf('lovers')!==-1 || q.indexOf('lover')!==-1) return PRODUCTS[3];
+  if(q.indexOf('sun')!==-1) return PRODUCTS[4];
+  if(q.indexOf('pin')!==-1 || q.indexOf('ghost hunter')!==-1) return PRODUCTS[5];
+  return null;
+}
+
+function answer(raw){
+  var q = ' ' + raw.toLowerCase().replace(/[^a-z0-9 ]/g,' ') + ' ';
+  var p = findProduct(q);
+  if(p){
+    return p.name + " — " + p.desc + "\n\nNotes: " + p.notes + "\nDemo price: " + p.price + " · Ritual soy, crystal topped.\n\nWant a second option in the same family (" + p.mood + "), or is this for a gift?";
+  }
+  if(/\b(hi|hello|hey|morning|afternoon)\b/.test(q)) return "Hello, and welcome to Wicked Obscura. 🌙 Tell me what you're working toward — release, focus, love, clarity, or light — and I'll point you to the right candle. Shopping for yourself or a gift?";
+  if(q.indexOf('letting go')!==-1 || q.indexOf('let go')!==-1 || q.indexOf('release')!==-1 || q.indexOf('transformation')!==-1 || q.indexOf('rebirth')!==-1){
+    return "For letting go, reach for Death Tarot — vetiver & cedar, topped with dried statice and iolite. 🌑\n\nIt's the candle for release, shadow work, and transformation: the old falls away so something new has room. Smoky, woodsy, and grounding.\n\nWant the scent notes in more detail, or is there a second intention on your mind?";
+  }
+  if(q.indexOf('crystal')!==-1 || q.indexOf('stone')!==-1 || q.indexOf('iolite')!==-1 || q.indexOf('moonstone')!==-1 || q.indexOf('amethyst')!==-1 || q.indexOf('quartz')!==-1 || q.indexOf('meaning')!==-1){
+    return "Crystals at Wicked Obscura, by candle: 💎\n\n• Iolite (Death Tarot) — vision, clarity, and trust in the unknown\n• Rainbow moonstone (Ghost) — balance, intuition, and calm\n• Amethyst (The Magician) — intuition, spiritual connection, inner clarity\n• Rose quartz (The Lovers) — unconditional love, harmony, and healing\n\nWhen the wax is gone, the crystal stays as a keepsake. Which candle's stone speaks to you?";
+  }
+  if(q.indexOf('unscented')!==-1 || q.indexOf('scent sensitive')!==-1 || q.indexOf('no scent')!==-1 || q.indexOf('fragrance free')!==-1){
+    return "Yes — Ghost is the unscented soy candle, topped with rainbow moonstone. 🕯️\n\nPure flame without fragrance, made for meditation, spiritual practice, and scent-sensitive homes or ceremonies. Demo price from $20.00.\n\nWant help pairing it with a ritual, or would you rather browse scented candles?";
+  }
+  if(q.indexOf('scent')!==-1 || q.indexOf('smell')!==-1 || q.indexOf('fragrance')!==-1){
+    return "Here's the ritual lineup:\n\n• Death Tarot — vetiver & cedar (from $3.50)\n• Ghost — unscented, rainbow moonstone (from $20.00)\n• The Magician — black rose & amber (from $3.50)\n• The Lovers — rose & sandalwood (from $3.50)\n• The Sun — citrus & neroli (from $3.50)\n\nTell me the intention — release, focus, love, or light — and I'll pick your match.";
+  }
+  if(q.indexOf('tarot')!==-1 || q.indexOf('card')!==-1){
+    return "The Tarot Candle Collection pairs each archetype with a scent and a stone: 🃏\n\n• Death — release & rebirth (vetiver & cedar, iolite)\n• The Magician — focus & willpower (black rose & amber, amethyst)\n• The Lovers — union & harmony (rose & sandalwood, rose quartz)\n• The Sun — radiance & optimism (citrus & neroli)\n\nWhich card are you drawn to right now?";
+  }
+  if(q.indexOf('ship')!==-1 || q.indexOf('deliver')!==-1 || q.indexOf('pickup')!==-1 || q.indexOf('pick up')!==-1){
+    return "Good question — shipping & delivery details are placeholders in this concept demo, to be confirmed by Wicked Obscura before launch. 📦\n\nThe shop is based in Covington, KY. On the live version I'd confirm your ZIP and give you exact options here. Want me to help you pick a candle while you're here?";
+  }
+  if(q.indexOf('price')!==-1 || q.indexOf('cost')!==-1 || q.indexOf('how much')!==-1){
+    return "Demo pricing in this concept:\n• Tarot ritual candles: from $3.50\n• Ghost unscented: from $20.00\n• Ghost Hunter Club pin: $3.50\n\nHeads up: these are placeholder demo prices from the shop's live listings for Wicked Obscura to confirm, and there's no live checkout in this concept. Want me to match a candle to your intention?";
+  }
+  if(q.indexOf('gift')!==-1){
+    return "Love it — ritual candles make a memorable gift because every one carries an intention. 🎁\n\nSafe bets:\n• Death Tarot (from $3.50) — for someone in a season of change\n• The Lovers (from $3.50) — warm, romantic, beautiful for couples or self-love\n• Ghost (from $20.00) — elegant and unscented, for anyone\n\nWho's it for, and what are they moving through? I'll narrow it to one.";
+  }
+  if(q.indexOf('ritual')!==-1 || q.indexOf('how to')!==-1 || q.indexOf('use')!==-1 || q.indexOf('burn')!==-1){
+    return "A ritual candle in three small steps: ✦\n\n1) Choose your intention — release, focus, love, or light\n2) Light with purpose — trim the wick, take a breath, name what you're calling in or letting go of\n3) Keep the crystal — when the wax is gone, the stone remains as a keepsake\n\nAnd the usual candle care: heat-safe surface, away from drafts, never unattended. Want a candle matched to your intention?";
+  }
+  if(q.indexOf('mug')!==-1 || q.indexOf('hoodie')!==-1 || q.indexOf('pin')!==-1 || q.indexOf('nook')!==-1 || q.indexOf('apparel')!==-1 || q.indexOf('puzzle')!==-1 || q.indexOf('case')!==-1){
+    return "Beyond candles, the Witchy Nook carries: 🌙\n\n• Ghost Hunter Club enamel pin — $3.50\n• Death Tarot mug — $13.00 (11 oz, hand-wash only)\n• Zodiac Ritual cropped hoodie — from $38.50 (made to order)\n• All-Seeing Eye hoodie — from $45.00 (made to order)\n• Mystic Heart ritual puzzle — from $23.00\n\nMany Nook pieces are made to order and ship separately from candles. Which one caught your eye?";
+  }
+  if(q.indexOf('covington')!==-1 || q.indexOf('where')!==-1 || q.indexOf('kayla')!==-1 || q.indexOf('owner')!==-1 || q.indexOf('founder')!==-1 || q.indexOf('story')!==-1){
+    return "Wicked Obscura is a mystical candle & apothecary shop in Covington, Kentucky, run by founder Kayla Spelling. 🌙 Everything is poured with intention — fragrance, crystal, and botanical matched to the ritual it serves.\n\nWant help with a scent, a crystal, or a gift while you're here?";
+  }
+  if(q.indexOf('order')!==-1 || q.indexOf('buy')!==-1 || q.indexOf('checkout')!==-1 || q.indexOf('cart')!==-1){
+    return "Quick heads-up: this is an Apex AI concept demo, so there's no live checkout here — I'm showing how ordering questions would be handled on the real store. 🛍️\n\nWant me to help you choose the candle first so you know exactly what to order?";
+  }
+  if(q.indexOf('contact')!==-1 || q.indexOf('email')!==-1 || q.indexOf('human')!==-1 || q.indexOf('phone')!==-1){
+    return "You can reach the shop through wickedobscura.com — and in this demo, I'm your fastest answer for scent notes, crystal meanings, and ritual picks. 📧\n\nOr keep chatting — what's on your mind?";
+  }
+  if(q.indexOf('thank')!==-1) return "You're so welcome! 🌙 If you want, tell me the intention you're holding and I'll leave you with one perfect candle.";
+  if(q.indexOf('apex')!==-1 || q.indexOf('demo')!==-1 || q.indexOf('chatbot')!==-1 || q.indexOf('ai')!==-1){
+    return "This assistant is the Apex AI demo piece — it shows how Wicked Obscura's site could answer shopper questions instantly, 24/7, while Kayla's pouring. On a live build it would connect to real inventory, shipping, and order details.\n\nWant to keep testing me? Ask about a candle, a crystal, or a ritual.";
+  }
+  if(q.indexOf('recommend')!==-1 || q.indexOf('best')!==-1 || q.indexOf('which')!==-1){
+    return "If you're not sure where to start, tell me the moment: 🌙\n\n• Letting go → Death Tarot (vetiver & cedar)\n• Focus & manifestation → The Magician (black rose & amber)\n• Love & harmony → The Lovers (rose & sandalwood)\n• Bright & uplifting → The Sun (citrus & neroli)\n• Quiet & scent-free → Ghost (unscented)\n\nWhich of those sounds like you?";
+  }
+  return "I can help with that — let me point you the right way. 🌙\n\nI know the lineup best by intention:\n• Release → Death Tarot\n• Focus → The Magician\n• Love → The Lovers\n• Radiance → The Sun\n• Stillness → Ghost (unscented)\n\nOr ask me about crystal meanings, shipping, or gifts. Which sounds like you?";
+}
+</script>
+</body>
+</html>
