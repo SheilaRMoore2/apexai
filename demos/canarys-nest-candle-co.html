@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="data:," />
+<title>The Canary's Nest Candle Company — Concept Demo by Apex AI</title>
+<meta name="description" content="Concept demo of The Canary's Nest Candle Company — Small-batch soy candles from a Lenox, Georgia farm stand. With an Apex AI assistant baked in." />
+<style>
+  :root{--bg:#FDFBF7;--surface:#fff;--surface-2:#FAF5EC;--ink:#241D16;--ink-2:#5A4C3E;--muted:#8A7A68;--line:#E8DFD0;--line-strong:#D8C9AE;--accent:#8A7A1E;--accent-soft:#FBF3D3;--shadow:0 18px 44px rgba(60,35,10,.14);--shadow-sm:0 6px 20px rgba(60,35,10,.08);--radius:18px;--radius-lg:26px}
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit} button{font:inherit;cursor:pointer}
+  .demo-banner{background:#1C1410;color:#F5EAD8;font-size:.82rem;padding:.6rem 1rem;text-align:center;line-height:1.45}
+  .demo-banner strong{letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;background:var(--accent);color:#fff;padding:.18rem .5rem;border-radius:999px;margin-right:.5rem;white-space:nowrap}
+  .demo-banner a{color:#F0C96A}
+  .site-header{position:sticky;top:0;z-index:40;background:rgba(253,251,247,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .header-inner{max-width:1100px;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+  .mark{width:38px;height:38px;border-radius:10px;background:var(--accent);display:grid;place-items:center;font-size:1.2rem}
+  .brand-name{font-family:Georgia,serif;font-weight:700;font-size:1.4rem;line-height:1}
+  .brand-sub{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;display:block;margin-top:.15rem}
+  nav.main-nav{display:flex;gap:1.3rem;font-size:.92rem;font-weight:600}
+  nav.main-nav a{text-decoration:none;color:var(--ink-2)}
+  @media(max-width:720px){nav.main-nav{display:none}}
+  .btn{display:inline-flex;gap:.5rem;border-radius:999px;padding:.68rem 1.15rem;font-weight:700;font-size:.92rem;text-decoration:none;border:1px solid transparent}
+  .btn-primary{background:var(--ink);color:var(--bg)} .btn-accent{background:var(--accent);color:#fff} .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+  .hero{padding:3rem 0 2.4rem} .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:2.5rem;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--accent);background:var(--accent-soft);padding:.42rem .75rem;border-radius:999px}
+  .hero h1{font-family:Georgia,serif;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1;font-weight:600;margin:1rem 0 .9rem}
+  .hero h1 em{font-style:italic;color:var(--accent)} .hero p.lede{font-size:1.12rem;color:var(--ink-2);max-width:34rem;margin:0 0 1.5rem}
+  .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.7rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+  .hero-meta div strong{display:block;font-family:Georgia,serif;font-size:1.3rem;line-height:1} .hero-meta div span{font-size:.8rem;color:var(--muted);font-weight:600}
+  .hero-panel{border-radius:var(--radius-lg);box-shadow:var(--shadow);min-height:400px;background:linear-gradient(140deg,var(--accent),#3A2415);display:grid;place-items:center;text-align:center;padding:2rem;color:#FFF6E8}
+  .hero-panel .big{font-size:4.5rem;line-height:1} .hero-panel p{max-width:22rem;margin:1rem auto 0;color:#F3E3C8}
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .trust-inner{max-width:1100px;margin:0 auto;padding:.95rem 1.25rem;display:flex;gap:2rem;flex-wrap:wrap;justify-content:space-between;font-size:.86rem;font-weight:700;color:var(--ink-2)}
+  section.block{padding:3.4rem 0} .section-head{max-width:640px;margin-bottom:2rem}
+  .section-head h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.8rem);line-height:1.05;margin:.55rem 0 .6rem} .section-head p{color:var(--ink-2);margin:0}
+  .kicker{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+  .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  @media(max-width:960px){.product-grid{grid-template-columns:repeat(2,1fr)}} @media(max-width:600px){.product-grid{grid-template-columns:1fr}}
+  .product{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column;gap:.55rem}
+  .product h3{font-family:Georgia,serif;font-size:1.4rem;line-height:1.05;margin:.2rem 0 0}
+  .notes{font-size:.9rem;color:var(--ink-2);margin:0}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.8rem;border-top:1px dashed var(--line)}
+  .price{font-weight:800;font-size:1.05rem} .price small{font-weight:600;color:var(--muted);font-size:.75rem;display:block}
+  .ask-btn{background:var(--surface-2);border:1px solid var(--line-strong);border-radius:999px;padding:.5rem .8rem;font-weight:700;font-size:.84rem}
+  .demo-note{font-size:.82rem;color:var(--muted);margin-top:1rem}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem} @media(max-width:880px){.split{grid-template-columns:1fr}}
+  .story-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.8rem}
+  .story-card h2{font-family:Georgia,serif;font-size:2rem;margin:.4rem 0 .6rem;line-height:1.05} .story-card p{color:var(--ink-2);margin:0 0 .9rem}
+  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem}
+  details.faq+details.faq{margin-top:.7rem} details.faq summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  details.faq summary::-webkit-details-marker{display:none} details.faq summary::after{content:"+";color:var(--accent);font-size:1.2rem;line-height:1}
+  details.faq[open] summary::after{content:"–"} details.faq p{margin:.6rem 0 0;color:var(--ink-2);font-size:.94rem}
+  .ai-callout{background:var(--accent-soft);border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:2rem;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+  @media(max-width:880px){.ai-callout{grid-template-columns:1fr}}
+  .ai-callout h2{font-family:Georgia,serif;font-size:2.2rem;line-height:1.05;margin:.4rem 0 .6rem} .ai-callout p{margin:0;color:var(--ink-2)}
+  .try-chips{display:flex;flex-wrap:wrap;gap:.55rem} .try-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.6rem .9rem;font-weight:700;font-size:.88rem;text-align:left}
+  footer{border-top:1px solid var(--line);padding:2.2rem 0 6.5rem;background:var(--surface-2)}
+  .footer-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap} footer p{color:var(--muted);font-size:.88rem;max-width:38rem} footer a{color:var(--accent);font-weight:700}
+  .chat-fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;background:var(--ink);color:var(--bg);border:none;border-radius:999px;padding:.85rem 1.15rem;display:flex;gap:.6rem;font-weight:800;box-shadow:var(--shadow);font-size:.94rem}
+  .chat-fab .pulse{width:9px;height:9px;border-radius:50%;background:#7BC47F;box-shadow:0 0 0 4px rgba(123,196,127,.25)}
+  .chat-panel{position:fixed;right:1.1rem;bottom:5.2rem;z-index:61;width:min(400px,calc(100vw - 1.4rem));height:min(600px,calc(100dvh - 7rem));background:var(--surface);border:1px solid var(--line-strong);border-radius:22px;box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}
+  .chat-panel.open{display:flex}
+  .chat-head{background:var(--ink);color:#F5EAD8;padding:1rem 1.1rem;display:flex;gap:.8rem;align-items:center}
+  .chat-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-family:Georgia,serif;font-weight:700;font-size:1.2rem;color:#fff;flex:none}
+  .chat-head strong{display:block;line-height:1.1;font-size:.98rem} .chat-head span{font-size:.78rem;color:#D8C9AE}
+  .chat-head button{margin-left:auto;background:rgba(255,255,255,.12);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1}
+  .chat-body{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;background:var(--surface-2)}
+  .msg{max-width:86%;padding:.7rem .85rem;border-radius:16px;font-size:.92rem;line-height:1.5;white-space:pre-wrap}
+  .msg.bot{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+  .msg.user{background:var(--ink);color:var(--bg);border-bottom-right-radius:5px;align-self:flex-end}
+  .typing{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px;padding:.7rem .9rem;display:none;gap:.3rem}
+  .typing.show{display:flex} .typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.18s} .typing i:nth-child(3){animation-delay:.36s} @keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+  .chat-chips{padding:.65rem .8rem 0;display:flex;gap:.45rem;flex-wrap:wrap;background:var(--surface-2)}
+  .chat-chips button{background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:.42rem .65rem;font-size:.78rem;font-weight:700}
+  .chat-form{display:flex;gap:.5rem;padding:.8rem;border-top:1px solid var(--line);background:var(--surface)}
+  .chat-form input{flex:1;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:.7rem .95rem;font:inherit;font-size:.92rem;min-width:0}
+  .chat-form button[type=submit]{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:.7rem 1rem;font-weight:800}
+  .chat-foot{font-size:.7rem;color:var(--muted);text-align:center;padding:0 .8rem .7rem;background:var(--surface)}
+</style>
+</head>
+<body>
+<div class="demo-banner"><strong>Apex AI · Concept Demo</strong> This is a concept preview built for The Canary's Nest Candle Company — not their live store. Product details &amp; prices are placeholders for the shop to confirm. <a href="#ai-assistant">Try the AI assistant ↓</a></div>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="#top"><span class="mark">🐤</span><span><span class="brand-name">The Canary's Nest Candle Company</span><span class="brand-sub">Lenox, GA</span></span></a>
+<nav class="main-nav"><a href="#shop">Shop</a><a href="#story">Our Story</a><a href="#faq">FAQ</a></nav>
+<button class="btn btn-accent" type="button" onclick="openChat()">🐤 Ask the Assistant</button>
+</div></header>
+<main id="top">
+<div class="wrap hero"><div class="hero-grid"><div>
+<span class="eyebrow">Small-batch soy candles from a Lenox, Georgia farm stand</span>
+<h1>Pick your scents.<br />We'll pour <em>the rest.</em></h1>
+<p class="lede">A spare-bedroom startup turned small warehouse in Lenox, Georgia — pick-your-scent soy candle sets, sold at their farm stand and Saturday markets. Eight-ounce candles burn 40–50+ hours.</p>
+<div class="hero-ctas"><a class="btn btn-primary" href="#shop">Shop the collection</a><button class="btn btn-ghost" type="button" onclick="openChat('Help me pick one')">Find my pick →</button></div>
+<div class="hero-meta"><div><strong>Pick your scents</strong><span>30+ scents to choose</span></div><div><strong>40–50+ hr burn</strong><span>8 oz soy candles</span></div><div><strong>Farm stand &amp; markets</strong><span>Lenox, GA Saturdays</span></div></div>
+</div>
+<div class="hero-panel"><div><div class="big">🐤</div><p>A spare-bedroom startup turned small warehouse in Lenox, Georgia — pick-your-scent soy candle sets, sold at their farm stand and Saturday markets. Eight-ounce candles burn 40–50+ hours.</p></div></div>
+</div></div>
+<div class="trust"><div class="trust-inner"><span>Small-batch, made with care</span><span>Ask Canary anything, any time</span><span>Concept demo by Apex AI</span></div></div>
+<section class="block" id="shop"><div class="wrap"><div class="section-head">
+<span class="kicker">Shop the collection</span>
+<h2>Picked for <em style="color:var(--accent)">you</em></h2>
+<p>Ask Canary about any of them — scent notes, sizes, burn times, or gifts.</p>
+</div><div class="product-grid" id="productGrid"></div>
+<p class="demo-note">* Demo prices shown from the shop's live listings at time of concept; final prices, sizes, and details are placeholders for The Canary's Nest Candle Company to confirm.</p>
+</div></section>
+<section class="block" id="story" style="padding-top:0"><div class="wrap"><div class="split">
+<div class="story-card"><span class="kicker">Our story</span><h2>The Canary's Nest Candle Company</h2><p>The Canary's Nest Candle Company started in 2016 and now pours from a small warehouse in Lenox, Georgia, with an indoor farm stand at 737 Homer James Rd and Saturday market stalls.</p><p class="demo-note">Shop details are placeholders for the shop to confirm.</p></div>
+<div id="faq"><span class="kicker">Good to know</span><h2 style="font-family:Georgia,serif;font-size:2rem;margin:.4rem 0 1rem;line-height:1.05">Questions, answered</h2><details class="faq"><summary>How does pick-your-scent work?</summary><p>Choose a set, pick your scents from the 30+ scent menu, and add any special instructions at checkout. Ask Canary for scent recommendations.</p></details><details class="faq"><summary>What scents do you have?</summary><p>Favorites include Baby Cakes (vanilla cupcake), Blueberry Cobbler, South Georgia Peach, Mahogany Coconut, Frasier Fir, and Skinny Dippin'. Ask Canary by mood and I'll narrow it down.</p></details><details class="faq"><summary>Where can I shop in person?</summary><p>At their indoor farm stand at 737 Homer James Rd, Lenox, GA, and at Saturday markets. Market schedules are placeholders here, to be confirmed by the shop.</p></details></div>
+</div></div></section>
+<section class="block" id="ai-assistant" style="padding-top:0"><div class="wrap"><div class="ai-callout"><div>
+<span class="kicker">Meet Canary</span><h2>Answers while the shop is busy pouring</h2>
+<p>Ask Canary, the shop assistant — about scents, sizes, burn times, or gifts. It answers instantly, even after hours.</p>
+</div><div class="try-chips"><button type="button" onclick="openChat('Help me pick 3 scents')">Help me pick 3 scents</button><button type="button" onclick="openChat('What does Mahogany Coconut smell like?')">What does Mahogany Coconut smell like?</button><button type="button" onclick="openChat('How much are the sets?')">How much are the sets?</button><button type="button" onclick="openChat('Where can I shop in person?')">Where can I shop in person?</button></div></div></div></section>
+</main>
+<footer><div class="wrap footer-grid"><div><strong style="font-family:Georgia,serif;font-size:1.4rem">The Canary's Nest Candle Company</strong>
+<p>Small-batch soy candles from a Lenox, Georgia farm stand. This is an Apex AI concept demo — not the shop's live store. Product details, prices, and shipping are placeholders for the shop to confirm.</p></div>
+<p>Built as a concept by <a href="https://getapexai.dev">Apex AI</a> · Chat assistant Canary answers instantly, 24/7.</p></div></footer>
+<button class="chat-fab" id="chatFab" type="button" onclick="toggleChat()" aria-expanded="false"><span class="pulse"></span> Ask Canary · AI Assistant</button>
+<div class="chat-panel" id="chatPanel" aria-hidden="true">
+<div class="chat-head"><span class="chat-avatar">C</span><div><strong>Canary — The Canary's Nest Candle Company Assistant</strong><span>Powered by Apex AI · Demo · Replies instantly</span></div><button type="button" onclick="toggleChat(false)" aria-label="Close chat">×</button></div>
+<div class="chat-body" id="chatBody"></div>
+<div class="typing" id="typing"><i></i><i></i><i></i></div>
+<div class="chat-chips" id="chatChips"><button type="button" data-q="Help me pick 3 scents">Help me pick 3 scents</button><button type="button" data-q="What does Mahogany Coconut smell like?">What does Mahogany Coconut smell like?</button><button type="button" data-q="How much are the sets?">How much are the sets?</button><button type="button" data-q="Where can I shop in person?">Where can I shop in person?</button></div>
+<form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="Ask about scents, sizes, gifts…" autocomplete="off" /><button type="submit">Send</button></form>
+<div class="chat-foot">Apex AI concept demo — no live checkout here.</div>
+</div>
+<script>
+var PRODUCTS = [{"name": "Set of 5 Eight Ounce Soy Candles", "notes": "Buyer picks 5 scents \u00b7 8 oz each", "price": "$70.00", "desc": "Five full-size soy candles in the scents you choose \u2014 the best way to stock up."}, {"name": "Set of 3 Eight Ounce Soy Candles", "notes": "Buyer picks 3 scents \u00b7 8 oz each", "price": "$45.00", "desc": "Three full-size soy candles in your scents \u2014 a perfect starter set."}, {"name": "Best Bonus Mom Ever Candle", "notes": "Choose your scent \u00b7 4 oz, 8 oz, or 16 oz", "price": "$16.00", "desc": "For the best bonus mom \u2014 pick her favorite scent. 4 oz $8.00, 8 oz $16.00, 16 oz $25.00."}, {"name": "Wax Melts", "notes": "Choose your scent", "price": "See shop", "desc": "Flameless fragrance in your favorite Canary's Nest scent. Price placeholders in this demo, to be confirmed by the shop."}, {"name": "Reed Diffusers", "notes": "Choose your scent", "price": "See shop", "desc": "Steady, flameless scent for any room. Price placeholders in this demo, to be confirmed by the shop."}, {"name": "Room + Linen Sprays", "notes": "Choose your scent", "price": "See shop", "desc": "A quick refresh for rooms and linens. Price placeholders in this demo, to be confirmed by the shop."}];
+var EXTRAS = {"burn": "Eight-ounce Canary's Nest candles average a 40\u201350+ hour burn.", "about": "The Canary's Nest Candle Company started in 2016 and now pours from a small warehouse in Lenox, Georgia, with an indoor farm stand at 737 Homer James Rd and Saturday market stalls.", "contact": "You can reach the shop at thecanarysnestcandleco@gmail.com \u2014 and in this demo, I'm your fastest answer for scent picks and sets.", "shipping": "Shipping and delivery details are placeholders in this concept demo, to be confirmed by The Canary's Nest before launch. On the live version I'd confirm your ZIP and give you exact options here."};
+var SHOP = "The Canary's Nest Candle Company";
+var BOT = "Canary";
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function renderProducts(){
+  var grid = document.getElementById('productGrid'); var html = '';
+  PRODUCTS.forEach(function(p){
+    html += '<article class="product"><h3>' + esc(p.name) + '</h3>'
+      + '<p class="notes">' + esc(p.notes) + '</p>'
+      + '<p class="notes" style="color:var(--muted)">' + esc(p.desc) + '</p>'
+      + '<div class="price-row"><span class="price">' + esc(p.price) + '<small>demo price*</small></span>'
+      + '<button class="ask-btn" type="button" onclick="askAbout('' + p.name.replace(/'/g,"\'") + '')">Ask about this →</button></div></article>';
+  });
+  grid.innerHTML = html;
+}
+renderProducts();
+var chatPanel = document.getElementById('chatPanel');
+var chatBody = document.getElementById('chatBody');
+var chatInput = document.getElementById('chatInput');
+var chatFab = document.getElementById('chatFab');
+var typingEl = document.getElementById('typing');
+var greeted = false;
+function toggleChat(force){
+  var open = typeof force === 'boolean' ? force : !chatPanel.classList.contains('open');
+  chatPanel.classList.toggle('open', open);
+  chatPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  chatFab.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(open && !greeted){ greeted = true; botSay("Hi, I'm " + BOT + " — the " + SHOP + " assistant (Apex AI demo).\n\nI can help you pick a scent, explain a product, or find a gift. What are you shopping for?"); }
+  if(open){ setTimeout(function(){ chatInput.focus(); }, 80); }
+}
+function openChat(prefill){ toggleChat(true); if(prefill){ setTimeout(function(){ sendUser(prefill); }, 350); } }
+function askAbout(name){ openChat('Tell me about ' + name); }
+function addMsg(text, who){ var d = document.createElement('div'); d.className = 'msg ' + who; d.textContent = text; chatBody.appendChild(d); chatBody.scrollTop = chatBody.scrollHeight; return d; }
+function botSay(text){ typingEl.classList.add('show'); chatBody.scrollTop = chatBody.scrollHeight; var delay = 650 + Math.min(text.length * 4, 650); setTimeout(function(){ typingEl.classList.remove('show'); addMsg(text, 'bot'); }, delay); }
+function sendUser(text){ var t = (text || '').trim(); if(!t) return; addMsg(t, 'user'); chatInput.value = ''; botSay(answer(t)); }
+document.getElementById('chatForm').addEventListener('submit', function(e){ e.preventDefault(); sendUser(chatInput.value); });
+document.getElementById('chatChips').addEventListener('click', function(e){ var b = e.target.closest('button[data-q]'); if(b) sendUser(b.getAttribute('data-q')); });
+function findProduct(q){
+  for(var i=0;i<PRODUCTS.length;i++){
+    var name = PRODUCTS[i].name.toLowerCase();
+    var words = name.split(/[^a-z0-9]+/).filter(function(w){ return w.length > 3; });
+    for(var j=0;j<words.length;j++){ if(q.indexOf(words[j]) !== -1) return PRODUCTS[i]; }
+  }
+  return null;
+}
+function productList(){
+  var lines = [];
+  PRODUCTS.forEach(function(p){ lines.push('• ' + p.name + ' — ' + p.price + ' (' + p.notes + ')'); });
+  return lines.join('\n');
+}
+function answer(raw){
+  var q = ' ' + raw.toLowerCase().replace(/[^a-z0-9 ]/g,' ') + ' ';
+  var p = findProduct(q);
+  if(p){ return p.name + ' — ' + p.desc + '\n\nNotes: ' + p.notes + '\nDemo price: ' + p.price + '.\n\nWant a second option, or is this for a gift?'; }
+  if(/\b(hi|hello|hey|morning|afternoon)\b/.test(q)) return "Hello, and welcome to " + SHOP + "! Tell me what you're shopping for — a scent for yourself, a gift, or something for an event — and I'll point you to the right pick.";
+  if(q.indexOf('scent') !== -1 || q.indexOf('smell') !== -1 || q.indexOf('fragrance') !== -1){ return "Here's the lineup at " + SHOP + ":\n\n" + productList() + "\n\nTell me the mood — cozy, bright, floral, or fresh — and I'll pick your match."; }
+  if(q.indexOf('price') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('how much') !== -1){ return "Demo pricing in this concept:\n\n" + productList() + "\n\nHeads up: these are placeholder demo prices from the shop's live listings for " + SHOP + " to confirm, and there's no live checkout in this concept."; }
+  if(q.indexOf('ship') !== -1 || q.indexOf('deliver') !== -1 || q.indexOf('pickup') !== -1 || q.indexOf('pick up') !== -1){ return EXTRAS.shipping; }
+  if(q.indexOf('burn') !== -1 || q.indexOf('how long') !== -1){ return EXTRAS.burn; }
+  if(q.indexOf('gift') !== -1){ return "Great choice — candles make a wonderful gift. A safe bet here is " + PRODUCTS[0].name + " (" + PRODUCTS[0].price + "), or tell me who it's for and I'll narrow it to one."; }
+  if(q.indexOf('recommend') !== -1 || q.indexOf('best') !== -1 || q.indexOf('which') !== -1 || q.indexOf('pick') !== -1 || q.indexOf('help') !== -1){ return "If you're not sure where to start, tell me the moment: cozy night in, bright and fresh, a gift, or something for an event — and I'll match you to one. Or browse the lineup:\n\n" + productList(); }
+  if(q.indexOf('contact') !== -1 || q.indexOf('email') !== -1 || q.indexOf('human') !== -1 || q.indexOf('phone') !== -1){ return EXTRAS.contact; }
+  if(q.indexOf('where') !== -1 || q.indexOf('story') !== -1 || q.indexOf('about') !== -1){ return EXTRAS.about; }
+  if(q.indexOf('order') !== -1 || q.indexOf('buy') !== -1 || q.indexOf('checkout') !== -1 || q.indexOf('cart') !== -1){ return "Quick heads-up: this is an Apex AI concept demo, so there's no live checkout here — I'm showing how ordering questions would be handled on the real store. Want me to help you choose first so you know exactly what to order?"; }
+  if(q.indexOf('thank') !== -1) return "You're so welcome! If you want, tell me the occasion and I'll leave you with one perfect pick.";
+  if(q.indexOf('apex') !== -1 || q.indexOf('demo') !== -1 || q.indexOf('chatbot') !== -1 || q.indexOf('ai') !== -1){ return "This assistant is the Apex AI demo piece — it shows how " + SHOP + "'s site could answer shopper questions instantly, 24/7. On a live build it would connect to real inventory, shipping, and order details."; }
+  return "I can help with that — let me point you the right way.\n\nI know the lineup best by scent and occasion. Ask me about a product, prices, shipping, or gifts — or tell me the mood you're shopping for.";
+}
+</script>
+</body>
+</html>
