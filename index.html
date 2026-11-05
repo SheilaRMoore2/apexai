@@ -7,12 +7,12 @@
     <meta name="description" content="Apex AI Automation: free automation audits, AI chatbot development, workflow automation, and custom web apps. Apex AI helps businesses scale smarter with AI. Not sure if automation is right for you? Get a free audit — zero risk, real results.">
     <meta name="keywords" content="apex ai, apex ai automation, AI automation, automation audit, AI chatbot, workflow automation, web development, business automation, free automation audit, artificial intelligence, custom web app, AI agent">
     <meta name="author" content="Apex AI Automation">
-    <link rel="canonical" href="https://apexai.com/">
+    <link rel="canonical" href="https://getapexai.dev/">
     <meta property="og:title" content="Apex AI Automation — AI Solutions & Free Automation Audit">
     <meta property="og:description" content="Apex AI Automation provides free automation audits, AI chatbot development, workflow automation, and custom web applications. Not sure if automation is right for you? Get a free audit — zero risk, real results.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://apexai.com/">
-    <meta property="og:image" content="https://apexai.com/og-image.png">
+    <meta property="og:url" content="https://getapexai.dev/">
+    <meta property="og:image" content="https://getapexai.dev/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Apex AI Automation — AI Solutions & Free Automation Audit">
     <meta name="twitter:description" content="Apex AI Automation provides free automation audits, AI chatbot development, workflow automation, and custom web applications. Not sure if automation is right for you? Get a free audit — zero risk, real results.">
@@ -22,11 +22,12 @@
             "@type": "Organization",
             "name": "Apex AI Automation",
             "alternateName": "Apex AI",
-            "url": "https://apexai.com/",
+            "url": "https://getapexai.dev/",
             "description": "Apex AI Automation provides free automation audits, AI chatbot development, workflow automation, and custom web applications.",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "sales",
+                "email": "hello@getapexai.dev",
                 "url": "https://calendly.com/sherexmykes/new-meeting"
             }
         }
@@ -120,7 +121,7 @@
                 <p class="text-blue-200 mb-6">A complete 5-page digital presence built to establish trust, showcase your full service line, and rank on search engines.</p>
                 <div class="text-4xl font-extrabold text-blue-400 mb-4">$899 <span class="text-base font-medium text-blue-300">(One-time)</span></div>
                 <ul class="space-y-3 text-blue-200 mb-8">
-                    <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Up to 5 custom pages (Home, About, Services, Case Studies, Contact)</li>
+                    <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Up to 5 custom pages (Home, About, Services, Gallery, Contact)</li>
                     <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Fully responsive React / Tailwind architecture</li>
                     <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Integrated lead forms, booking calendar link, social profiles</li>
                     <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> On-page SEO setup &amp; speed optimization</li>
@@ -180,8 +181,8 @@
                     <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Booking link included, so customers can book right from the text</li>
                     <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Done in a day or two</li>
                 </ul>
-                <a href="#contact" class="mt-auto bg-blue-600 px-8 py-4 rounded-full text-center text-lg font-bold hover:bg-blue-500 transition">Get started — book a free audit call</a>
-                <p class="text-sm text-blue-300 text-center mt-4">Or pick it in the <a href="#quick-order" class="text-blue-400 font-bold hover:text-blue-300">Quick Order form</a> below.</p>
+                <a href="#quick-order" onclick="selectPackage('Missed-Call Text-Back')" class="mt-auto bg-blue-600 px-8 py-4 rounded-full text-center text-lg font-bold hover:bg-blue-500 transition">Get started — $99 one-time</a>
+                <p class="text-sm text-blue-300 text-center mt-4">Or pick it in the <a href="#quick-order" onclick="selectPackage('Missed-Call Text-Back')" class="text-blue-400 font-bold hover:text-blue-300">Quick Order form</a> below.</p>
             </div>
 
             <!-- Offer: After-Hours Auto-Reply -->
@@ -194,8 +195,8 @@
                     <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Sends your booking link so customers can book anytime</li>
                     <li class="flex items-center space-x-3"><span class="text-blue-400 font-bold">✓</span> Works on Facebook and Google messages</li>
                 </ul>
-                <a href="#contact" class="mt-auto bg-blue-600 px-8 py-4 rounded-full text-center text-lg font-bold hover:bg-blue-500 transition">Get started — book a free audit call</a>
-                <p class="text-sm text-blue-300 text-center mt-4">Or pick it in the <a href="#quick-order" class="text-blue-400 font-bold hover:text-blue-300">Quick Order form</a> below.</p>
+                <a href="#quick-order" onclick="selectPackage('After-Hours Auto-Reply')" class="mt-auto bg-blue-600 px-8 py-4 rounded-full text-center text-lg font-bold hover:bg-blue-500 transition">Get started — $49 one-time</a>
+                <p class="text-sm text-blue-300 text-center mt-4">Or pick it in the <a href="#quick-order" onclick="selectPackage('After-Hours Auto-Reply')" class="text-blue-400 font-bold hover:text-blue-300">Quick Order form</a> below.</p>
             </div>
         </div>
     </section>
@@ -266,7 +267,15 @@
             <form action="https://formspree.io/f/mzdngdog" method="POST" class="space-y-6">
                 <div>
                     <label class="block text-sm font-medium text-blue-300 mb-2">Package</label>
-                    <input type="text" name="package" id="package-input" readonly required class="w-full p-4 bg-blue-950 border border-blue-800 rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+                    <select name="package" id="package-input" required class="w-full p-4 bg-blue-950 border border-blue-800 rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+                        <option value="" disabled selected>Choose a package…</option>
+                        <option value="High-Converting Landing Page ($399 one-time)">High-Converting Landing Page — $399 one-time</option>
+                        <option value="Multi-Page Business Website ($899 one-time)">Multi-Page Business Website — $899 one-time</option>
+                        <option value="AI Chatbot Starter ($499 setup + $29.99/month launch)">AI Chatbot Starter — $499 setup + $29.99/month launch</option>
+                        <option value="Workflow Automation Basic ($599 one-time setup)">Workflow Automation Basic — $599 one-time setup</option>
+                        <option value="Missed-Call Text-Back ($99 one-time)">Missed-Call Text-Back — $99 one-time</option>
+                        <option value="After-Hours Auto-Reply ($49 one-time)">After-Hours Auto-Reply — $49 one-time</option>
+                    </select>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-blue-300 mb-2">Full Name</label>
@@ -358,20 +367,29 @@
             <h4 class="text-2xl font-bold mb-4">Prefer to book a call directly?</h4>
             <p class="text-blue-200 mb-6">Pick a time that works for you and we'll jump on a quick call to discuss your free automation audit.</p>
             <a href="https://calendly.com/sherexmykes/new-meeting" target="_blank" rel="noopener" class="inline-block bg-blue-600 px-12 py-5 rounded-full text-lg font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/50">📅 Book Your Free Audit Call</a>
+            <p class="text-blue-200 mt-8">Prefer email? Reach us at <a href="mailto:hello@getapexai.dev" class="text-blue-400 font-bold hover:text-blue-300">hello@getapexai.dev</a></p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-12 text-center text-blue-400 text-sm border-t border-blue-900">
-        &copy; 2026 Apex AI Automation.
+        &copy; 2026 Apex AI Automation. &middot; <a href="mailto:hello@getapexai.dev" class="text-blue-400 font-bold hover:text-blue-300">hello@getapexai.dev</a>
     </footer>
 
 <!-- Quick Buy Script -->
     <script>
-        function selectPackage(name, price) {
+        function selectPackage(name) {
             var input = document.getElementById('package-input');
-            if (input) {
-                input.value = name + ' (' + price + ')';
+            if (!input) return;
+            if (input.tagName === 'SELECT') {
+                for (var i = 0; i < input.options.length; i++) {
+                    if (input.options[i].value.indexOf(name) === 0) {
+                        input.selectedIndex = i;
+                        break;
+                    }
+                }
+            } else {
+                input.value = name;
             }
         }
     </script>
