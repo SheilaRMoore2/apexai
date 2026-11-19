@@ -43,6 +43,7 @@
             <a href="#home" class="hover:text-blue-400">AI Consulting</a>
             <a href="#how-it-works" class="hover:text-blue-400">How It Works</a>
             <a href="#pricing" class="hover:text-blue-400">Pricing</a>
+            <a href="#calculator" class="hover:text-blue-400">Calculator</a>
             <a href="#start-small" class="hover:text-blue-400">Start Small</a>
             <a href="#examples" class="hover:text-blue-400">Examples</a>
             <a href="#contact" class="hover:text-blue-400">Contact</a>
@@ -59,12 +60,41 @@
             <a href="#how-it-works" class="border border-blue-400 text-blue-300 px-10 py-5 rounded-full text-lg font-bold hover:bg-blue-900/50 transition">See how it works ↓</a>
         </div>
         <p class="text-blue-300">Free audit &middot; No pressure &middot; If we're not the right fit, we'll say so.</p>
+        <p class="text-blue-300 mt-4">Missing calls? <a href="#calculator" class="text-amber-300 font-bold hover:text-amber-200">See what missed calls are costing you ↓</a></p>
     </header>
 
     <!-- Launch offer strip -->
     <div class="px-6 pb-4">
         <p class="text-center"><span class="inline-block bg-amber-400/10 border border-amber-300/60 text-amber-200 font-bold px-6 py-3 rounded-full">🔥 Launch offer: AI Chatbot Starter — $499 setup + $29.99/month (regular $99). Only 6 spots at this price.</span></p>
     </div>
+
+    <!-- Missed-call cost calculator -->
+    <section id="calculator" class="max-w-4xl mx-auto py-16 px-6">
+        <div class="bg-blue-900/50 p-10 rounded-3xl border-2 border-amber-400">
+            <h2 class="text-4xl font-bold text-center mb-4">What Are Missed Calls Costing You?</h2>
+            <p class="text-xl text-blue-200 text-center max-w-2xl mx-auto mb-10">Two numbers. That's all it takes to see it. I want to help you save money and increase your profit — first step is knowing what you're losing.</p>
+            <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label for="missed-calls" class="block text-sm font-medium text-blue-300 mb-2">Calls you miss each week</label>
+                    <input type="number" id="missed-calls" min="0" value="5" oninput="calcMissedCalls()" class="w-full p-4 bg-blue-950 border border-blue-800 rounded-xl outline-none focus:ring-2 focus:ring-blue-400 text-lg">
+                </div>
+                <div>
+                    <label for="job-value" class="block text-sm font-medium text-blue-300 mb-2">What one job or customer is worth to you ($)</label>
+                    <input type="number" id="job-value" min="0" value="150" oninput="calcMissedCalls()" class="w-full p-4 bg-blue-950 border border-blue-800 rounded-xl outline-none focus:ring-2 focus:ring-blue-400 text-lg">
+                </div>
+            </div>
+            <div class="text-center mb-2">
+                <p class="text-blue-200 text-lg">You're losing about</p>
+                <p class="text-5xl font-extrabold text-amber-300 my-3"><span id="calc-monthly">$0</span> <span class="text-2xl font-bold text-blue-200">a month</span></p>
+                <p class="text-2xl font-bold text-blue-400"><span id="calc-yearly">$0</span> a year</p>
+            </div>
+            <p class="text-sm text-blue-300 text-center mb-8">That's if every missed call is a lost job. Some call back. Most don't.</p>
+            <div class="text-center">
+                <a href="https://calendly.com/sherexmykes/new-meeting" target="_blank" rel="noopener" class="inline-block bg-blue-600 px-10 py-5 rounded-full text-lg font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/50">Book a free audit</a>
+                <p class="text-blue-300 mt-6">Or stop the bleeding for $99 one-time — the <a href="#start-small" class="text-blue-400 font-bold hover:text-blue-300">missed-call text-back</a> answers every missed call for you, automatically.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Our promise -->
     <section id="promise" class="max-w-7xl mx-auto py-16 px-6">
@@ -391,6 +421,16 @@
         </div>
     </section>
 
+    <!-- Referrals -->
+    <section id="referrals" class="max-w-4xl mx-auto py-16 px-6">
+        <div class="bg-blue-900/50 p-10 rounded-3xl border border-blue-800 text-center">
+            <h2 class="text-4xl font-bold mb-4">Refer a Business, Get $25.</h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto mb-6">Know a business that keeps missing calls or drowning in busywork? Send them our way. When a business you refer signs up for any paid Apex service, you get $25. No limits — send as many as you like.</p>
+            <p class="text-blue-200 mb-8">Just email us at <a href="mailto:hello@getapexai.dev" class="text-blue-400 font-bold hover:text-blue-300">hello@getapexai.dev</a> — tell us who you sent and what they do, and we'll take it from there.</p>
+            <a href="mailto:hello@getapexai.dev?subject=Referral%20for%20Apex%20AI%20Automation" class="inline-block bg-blue-600 px-10 py-5 rounded-full text-lg font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/50">Send a referral</a>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="max-w-2xl mx-auto py-16 px-6">
         <h2 class="text-4xl font-bold mb-12 text-center">Let's Connect</h2>
@@ -430,6 +470,16 @@
                 input.value = name;
             }
         }
+
+        function calcMissedCalls() {
+            var missed = parseFloat(document.getElementById('missed-calls').value) || 0;
+            var value = parseFloat(document.getElementById('job-value').value) || 0;
+            var monthly = missed * 4.33 * value;
+            var yearly = monthly * 12;
+            document.getElementById('calc-monthly').textContent = '$' + Math.round(monthly).toLocaleString('en-US');
+            document.getElementById('calc-yearly').textContent = '$' + Math.round(yearly).toLocaleString('en-US');
+        }
+        calcMissedCalls();
     </script>
 
     <!-- Custom Chatbot Widget -->
